@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="%projectHomePage">
+      %description
+   </description>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_4.8.3.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="4.8.3">
+      <category name="PropertiesEditor"/>
+   </feature>
+   <category-def name="PropertiesEditor" label="PropertiesEditor"/>
+</site>
