@@ -1,0 +1,20 @@
+<project name="CreateKeyStore" default="reGenerateKeyStore" basedir=".">
+	<property name="storepass" value="miyazaki"/>
+	<property name="keystore" value="./keystore"/>
+
+	<target name="deleteKeyStore" description="署名キーを削除します。">
+		<delete file="${keystore}/myKeyStore"/>
+	</target>
+
+	<target name="reGenerateKeyStore" depends="deleteKeyStore" description="署名キーを生成します。">
+		<genkey alias="chomakichi" storepass="${storepass}" keystore="${keystore}/myKeyStore">
+			<dname>
+				<param name="CN" value="Chomakichi"/>
+				<param name="S"  value="Kanagawa"/>
+				<param name="C"  value="JP"/>
+			</dname>
+		</genkey>
+	</target>
+
+</project>
+
