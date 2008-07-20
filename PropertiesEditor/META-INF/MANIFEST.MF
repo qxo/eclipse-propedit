@@ -1,4 +1,5 @@
 Manifest-Version: 1.0
+Main-Class: jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name.0
 Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit;singleton:=true
