@@ -119,7 +119,8 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 		createPage0();
 		createPage1();
 		
-		IPreferenceStore apiStore = PrefUtil.getAPIPreferenceStore();
+//		IPreferenceStore apiStore = PrefUtil.getAPIPreferenceStore();
+		IPreferenceStore apiStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
 		
 		Composite container = getContainer();
 		if (container != null && container instanceof CTabFolder) {
@@ -150,7 +151,8 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 	}
 	
 	protected void setTabStyle() {
-		IPreferenceStore apiStore = PrefUtil.getAPIPreferenceStore();
+//		IPreferenceStore apiStore = PrefUtil.getAPIPreferenceStore();
+		IPreferenceStore apiStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
 		boolean simple = apiStore.getBoolean(IWorkbenchPreferenceConstants.SHOW_TRADITIONAL_STYLE_TABS);
 
 		Composite container = getContainer();
