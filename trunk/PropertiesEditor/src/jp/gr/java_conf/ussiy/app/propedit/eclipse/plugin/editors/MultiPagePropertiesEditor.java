@@ -33,7 +33,6 @@ import org.eclipse.ui.IWorkbenchPreferenceConstants;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.IGotoMarker;
-import org.eclipse.ui.internal.util.PrefUtil;
 import org.eclipse.ui.part.MultiPageEditorPart;
 
 /**
@@ -119,7 +118,6 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 		createPage0();
 		createPage1();
 		
-//		IPreferenceStore apiStore = PrefUtil.getAPIPreferenceStore();
 		IPreferenceStore apiStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
 		
 		Composite container = getContainer();
@@ -151,7 +149,6 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 	}
 	
 	protected void setTabStyle() {
-//		IPreferenceStore apiStore = PrefUtil.getAPIPreferenceStore();
 		IPreferenceStore apiStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
 		boolean simple = apiStore.getBoolean(IWorkbenchPreferenceConstants.SHOW_TRADITIONAL_STYLE_TABS);
 
