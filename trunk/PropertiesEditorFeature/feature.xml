@@ -38,9 +38,9 @@
 
    <plugin
          id="jp.gr.java_conf.ussiy.app.propedit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         download-size="209"
+         install-size="209"
+         version="5.0.1"
          unpack="false"/>
 
 </feature>
