@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit"
       label="%featureName"
-      version="5.0.0"
+      version="5.0.1"
       provider-name="%providerName"
       plugin="jp.gr.java_conf.ussiy.app.propedit"
       image="icons/pe_32.gif">
@@ -33,6 +33,7 @@
       <import plugin="org.eclipse.core.runtime" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.views"/>
       <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
    </requires>
 
    <plugin
