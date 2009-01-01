@@ -6,5 +6,8 @@
    <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.0.0.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.0.0">
       <category name="PropertiesEditor"/>
    </feature>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.0.1.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.0.1">
+      <category name="PropertiesEditor"/>
+   </feature>
    <category-def name="PropertiesEditor" label="PropertiesEditor"/>
 </site>
