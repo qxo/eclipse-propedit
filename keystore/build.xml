@@ -1,5 +1,5 @@
 <project name="CreateKeyStore" default="reGenerateKeyStore" basedir=".">
-	<property name="storepass" value="miyazaki"/>
+	<property name="storepass" value="|h0ucecBh.LLw%Mi1Fd6Zd'rx=~:0!Re"/>
 	<property name="keystore" value="./keystore"/>
 
 	<target name="deleteKeyStore" description="署名キーを削除します。">
