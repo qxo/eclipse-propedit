@@ -10,7 +10,7 @@
 		<genkey alias="chomakichi" storepass="${storepass}" keystore="${keystore}/myKeyStore">
 			<dname>
 				<param name="CN" value="Chomakichi"/>
-				<param name="S"  value="Kanagawa"/>
+				<param name="L"  value="Kanagawa"/>
 				<param name="C"  value="JP"/>
 			</dname>
 		</genkey>
