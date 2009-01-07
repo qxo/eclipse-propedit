@@ -7,7 +7,13 @@
 	</target>
 
 	<target name="reGenerateKeyStore" depends="deleteKeyStore" description="署名キーを生成します。">
-		<genkey alias="chomakichi" storepass="${storepass}" keystore="${keystore}/myKeyStore">
+		<genkey 
+				alias="chomakichi" 
+				storepass="${storepass}" 
+				keystore="${keystore}/myKeyStore"
+				validity="365"
+				verbose="true"
+			>
 			<dname>
 				<param name="CN" value="Chomakichi"/>
 				<param name="L"  value="Kanagawa"/>
