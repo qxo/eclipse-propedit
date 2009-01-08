@@ -11,7 +11,7 @@
 				alias="chomakichi" 
 				storepass="${storepass}" 
 				keystore="${keystore}/myKeyStore"
-				validity="365"
+				validity="730"
 				verbose="true"
 			>
 			<dname>
