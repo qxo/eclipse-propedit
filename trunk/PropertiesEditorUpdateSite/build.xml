@@ -1,10 +1,10 @@
 <project name="PropertiesEditorProject" default="signJar" basedir=".">
 
 	<property name="storepass" value="|h0ucecBh.LLw%Mi1Fd6Zd'rx=~:0!Re"/>
-	<property name="keystore" value="../keystore"/>
+	<property name="keystore" value="../keystore/keystore/myKeyStore"/>
 
 	<target name="signJar" description="jarファイルをコピーして署名を施します。">
-		<signjar keystore="${keystore}/myKeyStore" alias="choma" storepass="${storepass}">
+		<signjar keystore="${keystore}" alias="chomakichi" storepass="${storepass}">
 			<fileset dir="." includes="PropertiesEditor.jar"/>
 		</signjar>
 	</target>
