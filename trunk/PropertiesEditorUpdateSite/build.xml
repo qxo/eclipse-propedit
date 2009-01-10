@@ -1,6 +1,6 @@
 <project name="PropertiesEditorProject" default="signJar" basedir=".">
 
-	<property name="keystore" value="../keystore/keystore/output.jks"/>
+	<property name="keystore" value="../keystore/output.jks"/>
 
 	<target name="signJar" description="jarファイルをコピーして署名を施します。">
 		<echo message="enter keystore password."/>
