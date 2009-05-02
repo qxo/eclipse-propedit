@@ -8,7 +8,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
-import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -16,8 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ReplaceTextDialog extends BaseDialog {
-
-	static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
 
 	private String sourceText;
 
@@ -49,7 +46,7 @@ public class ReplaceTextDialog extends BaseDialog {
 
 	public ReplaceTextDialog(Frame frame, boolean modal) {
 
-		this(frame, res.getString("replaceMenuItem_Text"), modal); //$NON-NLS-1$
+		this(frame, PropertiesEditor.getI18nProperty("replaceMenuItem_Text"), modal); //$NON-NLS-1$
 	}
 
 	private ReplaceTextDialog(Frame frame, String title, boolean modal) {
@@ -72,7 +69,7 @@ public class ReplaceTextDialog extends BaseDialog {
 
 		panel1.setLayout(borderLayout1);
 		replaceButton.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		replaceButton.setText(res.getString("replaceMenuItem_Text")); //$NON-NLS-1$
+		replaceButton.setText(PropertiesEditor.getI18nProperty("replaceMenuItem_Text")); //$NON-NLS-1$
 		replaceButton.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -81,7 +78,7 @@ public class ReplaceTextDialog extends BaseDialog {
 			}
 		});
 		cancelButton.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		cancelButton.setText(res.getString("KEY17")); //$NON-NLS-1$
+		cancelButton.setText(PropertiesEditor.getI18nProperty("KEY17")); //$NON-NLS-1$
 		cancelButton.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -93,12 +90,12 @@ public class ReplaceTextDialog extends BaseDialog {
 		flowLayout1.setAlignment(FlowLayout.RIGHT);
 		jPanel2.setLayout(gridBagLayout1);
 		jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		jLabel1.setText(res.getString("jLabel1_Text1")); //$NON-NLS-1$
+		jLabel1.setText(PropertiesEditor.getI18nProperty("jLabel1_Text1")); //$NON-NLS-1$
 		sourceTextField.setFont(new java.awt.Font("Dialog", 0, 14)); //$NON-NLS-1$
 		sourceTextField.setPreferredSize(new Dimension(200, 30));
 		sourceTextField.setText(""); //$NON-NLS-1$
 		jLabel2.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		jLabel2.setText(res.getString("jLabel2_Text")); //$NON-NLS-1$
+		jLabel2.setText(PropertiesEditor.getI18nProperty("jLabel2_Text")); //$NON-NLS-1$
 		exchangeTextField.setFont(new java.awt.Font("Dialog", 0, 14)); //$NON-NLS-1$
 		exchangeTextField.setPreferredSize(new Dimension(200, 30));
 		exchangeTextField.setText(""); //$NON-NLS-1$

@@ -1,9 +1,9 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference;
 
-import jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.ColorManager;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.MultiPagePropertiesEditor;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.ColorFieldEditor;
@@ -58,7 +58,7 @@ public class PropertiesEditorPreference extends FieldEditorPreferencePage implem
 
 		super(GRID);
 		setPreferenceStore(PropertiesEditorPlugin.getDefault().getPreferenceStore());
-		setDescription(PropertiesEditor.res.getString("eclipse.propertieseditor.preference.page.title")); //$NON-NLS-1$
+		setDescription(Messages.getString("eclipse.propertieseditor.preference.page.title")); //$NON-NLS-1$
 	}
 
 	public void createFieldEditors() {
@@ -70,8 +70,8 @@ public class PropertiesEditorPreference extends FieldEditorPreferencePage implem
 		collapseGd.horizontalSpan = 2;
 		collapseGroup.setLayoutData(collapseGd);
 		collapseGroup.setLayout(new GridLayout(1, true));
-		collapseGroup.setText(PropertiesEditor.res.getString("eclipse.propertieseditor.preference.collapse.group")); //$NON-NLS-1$
-		collapseCheckFieldEditor = new BooleanFieldEditor(P_COLLAPSE, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.collapse"), collapseGroup) { //$NON-NLS-1$
+		collapseGroup.setText(Messages.getString("eclipse.propertieseditor.preference.collapse.group")); //$NON-NLS-1$
+		collapseCheckFieldEditor = new BooleanFieldEditor(P_COLLAPSE, Messages.getString("eclipse.propertieseditor.preference.collapse"), collapseGroup) { //$NON-NLS-1$
 
 			/**
 			 * @see org.eclipse.jface.preference.BooleanFieldEditor#valueChanged(boolean, boolean)
@@ -82,7 +82,7 @@ public class PropertiesEditorPreference extends FieldEditorPreferencePage implem
 				super.valueChanged(oldValue, newValue);
 			}
 		};
-		initialCollapseCheckFieldEditor = new BooleanFieldEditor(P_INIT_COLLAPSE, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.initcollapse"), collapseGroup); //$NON-NLS-1$
+		initialCollapseCheckFieldEditor = new BooleanFieldEditor(P_INIT_COLLAPSE, Messages.getString("eclipse.propertieseditor.preference.initcollapse"), collapseGroup); //$NON-NLS-1$
 		initialCollapseCheckFieldEditor.setEnabled(PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesEditorPreference.P_COLLAPSE), collapseGroup);
 
 		final Group colorGroup = new Group(parent, SWT.NONE);
@@ -90,12 +90,12 @@ public class PropertiesEditorPreference extends FieldEditorPreferencePage implem
 		colorGd.horizontalSpan = 2;
 		colorGroup.setLayoutData(colorGd);
 		colorGroup.setLayout(new GridLayout(1, true));
-		colorGroup.setText(PropertiesEditor.res.getString("eclipse.propertieseditor.preference.color.option.group")); //$NON-NLS-1$
-		commentColorFieldEditor = new ColorFieldEditor(P_COMMENT_COLOR, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.color.comment"), colorGroup); //$NON-NLS-1$
-		separatorColorFieldEditor = new ColorFieldEditor(P_SEPARATOR_COLOR, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.color.separator"), colorGroup); //$NON-NLS-1$
-		keyColorFieldEditor = new ColorFieldEditor(P_KEY_COLOR, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.color.key"), colorGroup); //$NON-NLS-1$
-		valueColorFieldEditor = new ColorFieldEditor(P_VALUE_COLOR, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.color.value"), colorGroup); //$NON-NLS-1$
-		backgroundColorFieldEditor = new ColorFieldEditor(P_BACKGROUND_COLOR, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.color.background"), colorGroup); //$NON-NLS-1$
+		colorGroup.setText(Messages.getString("eclipse.propertieseditor.preference.color.option.group")); //$NON-NLS-1$
+		commentColorFieldEditor = new ColorFieldEditor(P_COMMENT_COLOR, Messages.getString("eclipse.propertieseditor.preference.color.comment"), colorGroup); //$NON-NLS-1$
+		separatorColorFieldEditor = new ColorFieldEditor(P_SEPARATOR_COLOR, Messages.getString("eclipse.propertieseditor.preference.color.separator"), colorGroup); //$NON-NLS-1$
+		keyColorFieldEditor = new ColorFieldEditor(P_KEY_COLOR, Messages.getString("eclipse.propertieseditor.preference.color.key"), colorGroup); //$NON-NLS-1$
+		valueColorFieldEditor = new ColorFieldEditor(P_VALUE_COLOR, Messages.getString("eclipse.propertieseditor.preference.color.value"), colorGroup); //$NON-NLS-1$
+		backgroundColorFieldEditor = new ColorFieldEditor(P_BACKGROUND_COLOR, Messages.getString("eclipse.propertieseditor.preference.color.background"), colorGroup); //$NON-NLS-1$
 
 		addField(collapseCheckFieldEditor);
 		addField(initialCollapseCheckFieldEditor);

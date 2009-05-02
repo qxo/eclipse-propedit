@@ -10,7 +10,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
-import java.util.ResourceBundle;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -26,10 +25,6 @@ import javax.swing.JTextArea;
  *  
  */
 public class UnicodeDialog extends BaseDialog {
-
-	/**
-	 */
-	static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
 
 	private JPanel panel1 = new JPanel();
 
@@ -85,8 +80,8 @@ public class UnicodeDialog extends BaseDialog {
 		jTextArea1.setBackground(new Color(230, 230, 255));
 		jTextArea1.setEnabled(true);
 		jTextArea1.setEditable(false);
-		jMenu1.setText(res.getString("fileMenu_Text")); //$NON-NLS-1$
-		jMenuItem1.setText(res.getString("closeMenuItem_Text")); //$NON-NLS-1$
+		jMenu1.setText(PropertiesEditor.getI18nProperty("fileMenu_Text")); //$NON-NLS-1$
+		jMenuItem1.setText(PropertiesEditor.getI18nProperty("closeMenuItem_Text")); //$NON-NLS-1$
 		jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke('U', java.awt.event.KeyEvent.CTRL_MASK, false));
 		jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
 

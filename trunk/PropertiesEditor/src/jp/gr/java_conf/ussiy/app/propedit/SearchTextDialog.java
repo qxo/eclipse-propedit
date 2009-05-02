@@ -6,7 +6,6 @@ import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.util.ResourceBundle;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -14,8 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class SearchTextDialog extends BaseDialog {
-
-	static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
 
 	private String inputString;
 
@@ -41,7 +38,7 @@ public class SearchTextDialog extends BaseDialog {
 
 	public SearchTextDialog(Frame frame, boolean modal) {
 
-		this(frame, res.getString("findMenuItem_Text"), modal); //$NON-NLS-1$
+		this(frame, PropertiesEditor.getI18nProperty("findMenuItem_Text"), modal); //$NON-NLS-1$
 	}
 
 	private SearchTextDialog(Frame frame, String title, boolean modal) {
@@ -67,7 +64,7 @@ public class SearchTextDialog extends BaseDialog {
 		flowLayout1.setAlignment(FlowLayout.RIGHT);
 		jPanel2.setLayout(flowLayout2);
 		jLabel1.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		jLabel1.setText(res.getString("jLabel1_Text2")); //$NON-NLS-1$
+		jLabel1.setText(PropertiesEditor.getI18nProperty("jLabel1_Text2")); //$NON-NLS-1$
 		inputTextField.setFont(new java.awt.Font("Dialog", 0, 14)); //$NON-NLS-1$
 		inputTextField.setPreferredSize(new Dimension(200, 30));
 		inputTextField.setText(""); //$NON-NLS-1$
@@ -79,7 +76,7 @@ public class SearchTextDialog extends BaseDialog {
 			}
 		});
 		cancelButton.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		cancelButton.setText(res.getString("KEY17")); //$NON-NLS-1$
+		cancelButton.setText(PropertiesEditor.getI18nProperty("KEY17")); //$NON-NLS-1$
 		cancelButton.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -88,7 +85,7 @@ public class SearchTextDialog extends BaseDialog {
 			}
 		});
 		searchButton.setFont(new java.awt.Font("Dialog", 1, 13)); //$NON-NLS-1$
-		searchButton.setText(res.getString("findMenuItem_Text")); //$NON-NLS-1$
+		searchButton.setText(PropertiesEditor.getI18nProperty("findMenuItem_Text")); //$NON-NLS-1$
 		searchButton.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {

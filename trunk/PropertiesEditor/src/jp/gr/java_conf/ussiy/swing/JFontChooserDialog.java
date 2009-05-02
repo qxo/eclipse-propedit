@@ -28,7 +28,7 @@ import jp.gr.java_conf.ussiy.app.propedit.BaseDialog;
 
 public class JFontChooserDialog extends BaseDialog {
 
-	static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
+	static ResourceBundle res = ResourceBundle.getBundle("jp.gr.java_conf.ussiy.swing.lang"); //$NON-NLS-1$
 
 	public static final int CANCEL_OPTION = 1;
 

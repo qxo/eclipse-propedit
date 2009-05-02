@@ -35,6 +35,8 @@ public class PropertiesDoubleClickStrategy implements ITextDoubleClickStrategy {
 		IDocument doc = fText.getDocument();
 
 		try {
+			int len = doc.getLength();
+			if (len == pos) return false;
 			ITypedRegion[] partitionType = doc.computePartitioning(pos, 1);
 			if (partitionType.length > 0) {
 				if (partitionType[0].getType().equals(IDocument.DEFAULT_CONTENT_TYPE)) {

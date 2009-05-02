@@ -7,8 +7,10 @@ import java.net.URL;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
 import jp.gr.java_conf.ussiy.app.propedit.util.EncodeChanger;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
@@ -23,6 +25,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
 
 public class ShowUnicodeEscAction implements IEditorActionDelegate {
 	private PropertiesEditor textEditor;
@@ -68,10 +71,13 @@ public class ShowUnicodeEscAction implements IEditorActionDelegate {
 		
 		// set title
 		shell.setText(textEditor.getTitle());
-		
 		// set unicode text
 		String editorText = textEditor.getDocumentProvider().getDocument(textEditor.getEditorInput()).get();
-		if (PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT)) {
+		
+		IProject project = ((IFileEditorInput)textEditor.getEditorInput()).getFile().getProject();
+		if (PropertyUtil.getNotAllConvert(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT))) {
+			text.setText(editorText);
+		} else if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
 			try {
 				text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText));
 			} catch (IOException e) {

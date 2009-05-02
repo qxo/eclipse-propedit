@@ -13,6 +13,8 @@ import org.osgi.framework.BundleContext;
  */
 public class PropertiesEditorPlugin extends AbstractUIPlugin {
 
+	public static String PLUGIN_ID = "jp.gr.java_conf.ussiy.app.propedit"; //$NON-NLS-1$
+	
 	//The shared instance.
 	private static PropertiesEditorPlugin plugin;
 

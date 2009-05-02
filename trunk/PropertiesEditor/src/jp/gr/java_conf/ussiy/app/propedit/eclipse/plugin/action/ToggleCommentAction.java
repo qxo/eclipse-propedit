@@ -4,7 +4,9 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.MultiPagePropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.text.BadLocationException;
@@ -15,6 +17,7 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.ui.IEditorActionDelegate;
 import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
 
 public class ToggleCommentAction implements IEditorActionDelegate {
 	private PropertiesEditor textEditor;
@@ -45,7 +48,8 @@ public class ToggleCommentAction implements IEditorActionDelegate {
 		
 		IPreferenceStore pStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
 
-		String commentString = pStore.getString(PropertiesPreference.P_COMMENT_CHARACTER);
+		IProject project = ((IFileEditorInput)textEditor.getEditorInput()).getFile().getProject();
+		String commentString = PropertyUtil.getCommentChar(project, pStore.getString(PropertiesPreference.P_COMMENT_CHARACTER));
 
 		ISelectionProvider selection = textEditor.getSelectionProvider();
 		if (selection == null) {

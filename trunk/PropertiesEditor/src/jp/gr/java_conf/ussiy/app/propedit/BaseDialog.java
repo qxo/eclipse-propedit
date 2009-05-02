@@ -27,14 +27,6 @@ public class BaseDialog extends JDialog {
 		this.setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height) / 2);
 	}
 
-	public void show() {
-
-		// Setup the display position of a dialog
-		setInitScreen();
-		// Show
-		super.setVisible(true);
-	}
-
 	public void setVisible(boolean b) {
 
 		// Setup the display position of a dialog

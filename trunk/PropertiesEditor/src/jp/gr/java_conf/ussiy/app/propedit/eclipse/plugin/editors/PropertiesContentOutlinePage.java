@@ -3,8 +3,8 @@ package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
@@ -84,7 +84,7 @@ public class PropertiesContentOutlinePage extends ContentOutlinePage {
 		// create toolbar action
 		PropertiesEditorPlugin.getDefault().getPluginPreferences().setDefault(ALPHA_SORT_BTN_CHECK_KEY, false);
 		IToolBarManager toolbar = getSite().getActionBars().getToolBarManager();
-		String label = PropertiesEditor.res.getString("eclipse.contentoutline.sort.label"); //$NON-NLS-1$
+		String label = Messages.getString("eclipse.contentoutline.sort.label"); //$NON-NLS-1$
 		Action action = new Action(label, Action.AS_CHECK_BOX) {
 			public void run() {
 				PropertiesEditorPlugin.getDefault().getPluginPreferences().setValue(ALPHA_SORT_BTN_CHECK_KEY, isChecked());

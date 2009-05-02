@@ -12,7 +12,6 @@ import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
-import java.util.ResourceBundle;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -30,10 +29,6 @@ import javax.swing.SwingConstants;
  *  
  */
 public class PropertiesEditorFrame_AboutBox extends JDialog implements ActionListener {
-
-	/**
-	 */
-	static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
 
 	private JPanel panel1 = new JPanel();
 
@@ -118,13 +113,13 @@ public class PropertiesEditorFrame_AboutBox extends JDialog implements ActionLis
 		image1 = new ImageIcon(jp.gr.java_conf.ussiy.app.propedit.PropertiesEditorFrame.class.getResource("resource/editor.gif")); //$NON-NLS-1$
 		imageLabel.setBorder(null);
 		imageLabel.setIcon(image1);
-		this.setTitle(res.getString("versionMenuItem_Text")); //$NON-NLS-1$
+		this.setTitle(PropertiesEditor.getI18nProperty("versionMenuItem_Text")); //$NON-NLS-1$
 		panel1.setLayout(borderLayout1);
 		panel2.setLayout(borderLayout2);
 		insetsPanel2.setLayout(borderLayout3);
 		insetsPanel2.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		label2.setFont(new java.awt.Font("Dialog", 1, 16)); //$NON-NLS-1$
-		label2.setText(res.getString("label2_Text") + PropertiesEditor.VERSION); //$NON-NLS-1$
+		label2.setText(PropertiesEditor.getI18nProperty("label2_Text") + PropertiesEditor.VERSION); //$NON-NLS-1$
 		label3.setFont(new java.awt.Font("Dialog", 1, 15)); //$NON-NLS-1$
 		label3.setText(PropertiesEditor.COPYRIGHT);
 		label3.setVerticalAlignment(SwingConstants.CENTER);
@@ -134,10 +129,10 @@ public class PropertiesEditorFrame_AboutBox extends JDialog implements ActionLis
 		button1.addActionListener(this);
 		jTextField1.setBorder(null);
 		jTextField1.setEditable(false);
-		jTextField1.setText(res.getString("jTextField1_Text")); //$NON-NLS-1$
+		jTextField1.setText(PropertiesEditor.getI18nProperty("jTextField1_Text")); //$NON-NLS-1$
 		jPanel1.setLayout(borderLayout5);
 		jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); //$NON-NLS-1$
-		jLabel1.setText(res.getString("license_Text")); //$NON-NLS-1$
+		jLabel1.setText(PropertiesEditor.getI18nProperty("license_Text")); //$NON-NLS-1$
 		insetsPanel2.add(imageLabel, BorderLayout.CENTER);
 		panel2.add(insetsPanel2, BorderLayout.WEST);
 		this.getContentPane().add(panel1, null);
