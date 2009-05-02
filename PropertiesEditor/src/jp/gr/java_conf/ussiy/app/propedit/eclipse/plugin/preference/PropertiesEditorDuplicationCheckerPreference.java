@@ -1,7 +1,7 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference;
 
-import jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
@@ -19,14 +19,14 @@ public class PropertiesEditorDuplicationCheckerPreference extends FieldEditorPre
 
 		super(GRID);
 		setPreferenceStore(PropertiesEditorPlugin.getDefault().getPreferenceStore());
-		setDescription(PropertiesEditor.res.getString("eclipse.propertieseditor.preference.page.title")); //$NON-NLS-1$
+		setDescription(Messages.getString("eclipse.propertieseditor.preference.page.title")); //$NON-NLS-1$
 	}
 
 	public void createFieldEditors() {
 
 		Composite parent = getFieldEditorParent();
 
-		duplicateCheckFieldEditor = new BooleanFieldEditor(P_CHECK_KEY, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.checkduplication"), parent); //$NON-NLS-1$
+		duplicateCheckFieldEditor = new BooleanFieldEditor(P_CHECK_KEY, Messages.getString("eclipse.propertieseditor.preference.checkduplication"), parent); //$NON-NLS-1$
 
 		addField(duplicateCheckFieldEditor);
 	}

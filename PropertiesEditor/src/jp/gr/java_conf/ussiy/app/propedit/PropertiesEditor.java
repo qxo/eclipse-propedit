@@ -22,7 +22,7 @@ public class PropertiesEditor {
 
 	/**
 	 */
-	public static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
+	private static ResourceBundle res = ResourceBundle.getBundle("jp.gr.java_conf.ussiy.app.propedit.lang"); //$NON-NLS-1$
 
 	public static String VERSION = res.getString("version"); //$NON-NLS-1$
 
@@ -79,5 +79,9 @@ public class PropertiesEditor {
 		System.out.println(res.getString("Version_") + PropertiesEditor.VERSION); //$NON-NLS-1$
 		System.out.println(PropertiesEditor.COPYRIGHT);
 		System.out.println("*****************************************/"); //$NON-NLS-1$
+	}
+
+	public static String getI18nProperty(String key) {
+		return res.getString(key);
 	}
 }

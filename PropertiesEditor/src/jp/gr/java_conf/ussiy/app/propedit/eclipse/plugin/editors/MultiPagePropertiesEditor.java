@@ -7,9 +7,12 @@ import java.net.URL;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesEditorPreference;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import jp.gr.java_conf.ussiy.app.propedit.util.EncodeChanger;
 
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -29,6 +32,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IWorkbenchPreferenceConstants;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.ide.IDE;
@@ -69,7 +73,7 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 		try {
 			editor = new PropertiesEditor();
 			int index = addPage(editor, getEditorInput());
-			setPageText(index, jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor.res.getString("eclipse.tabname.edit")); //$NON-NLS-1$
+			setPageText(index, Messages.getString("eclipse.tabname.edit")); //$NON-NLS-1$
 			setPartName(editor.getTitle());
 			setPageImage(index, image);
 			IPreferenceStore pStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
@@ -106,7 +110,7 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 		text.setBackground(color);
 
 		int index = addPage(composite);
-		setPageText(index, jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor.res.getString("eclipse.tabname.preview")); //$NON-NLS-1$
+		setPageText(index, Messages.getString("eclipse.tabname.preview")); //$NON-NLS-1$
 		setPageImage(index, image);
 	}
 
@@ -203,7 +207,8 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 
 		super.pageChange(newPageIndex);
 		String editorText = editor.getDocumentProvider().getDocument(editor.getEditorInput()).get();
-		if (PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT)) {
+		IProject project = ((IFileEditorInput)editor.getEditorInput()).getFile().getProject();
+		if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
 			try {
 				text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText));
 			} catch (IOException e) {

@@ -23,7 +23,8 @@
 		<page
 				name="%propertiesEditorPreferencePageName"
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference"
-				id="jp.gr.java_conf.ussiy.app.propedit.preference.PropertiesPreference"/>
+				id="jp.gr.java_conf.ussiy.app.propedit.preference.PropertiesPreference"
+				objectClass="org.eclipse.core.resources.IProject"/>
 		<page
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesEditorPreference"
 				category="jp.gr.java_conf.ussiy.app.propedit.preference.PropertiesPreference"
@@ -37,6 +38,18 @@
 	</extension>
 	<extension point="org.eclipse.core.runtime.preferences">
 		   <initializer class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PreferenceInitializer"/>
+	</extension>
+	
+	<!-- property page -->
+	<extension point="org.eclipse.ui.propertyPages">
+		<page
+				name="%propertiesEditorPreferencePageName"
+				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertiesProperty"
+				id="jp.gr.java_conf.ussiy.app.propedit.property.PropertiesProperty">
+			<enabledWhen>
+				<instanceof value="org.eclipse.core.resources.IProject"/>
+			</enabledWhen>
+		</page>
 	</extension>
 
 	<!-- popup menu & action -->

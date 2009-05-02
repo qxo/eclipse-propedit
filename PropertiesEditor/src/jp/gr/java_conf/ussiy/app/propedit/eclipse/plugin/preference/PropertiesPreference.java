@@ -1,8 +1,8 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference;
 
-import jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.ComboFieldEditor;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
@@ -39,15 +39,15 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 
 		super(GRID);
 		setPreferenceStore(PropertiesEditorPlugin.getDefault().getPreferenceStore());
-		setDescription(PropertiesEditor.res.getString("eclipse.propertieseditor.preference.page.title")); //$NON-NLS-1$
+		setDescription(Messages.getString("eclipse.propertieseditor.preference.page.title")); //$NON-NLS-1$
 	}
 
 	public void createFieldEditors() {
 
 		Composite parent = getFieldEditorParent();
 
-		encodeComboFieldEditor = new ComboFieldEditor(P_ENCODE, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.read.encode"), items, parent); //$NON-NLS-1$
-		commentCharacterField = new StringFieldEditor(P_COMMENT_CHARACTER, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.comment.character"), 1, parent); //$NON-NLS-1$
+		encodeComboFieldEditor = new ComboFieldEditor(P_ENCODE, Messages.getString("eclipse.propertieseditor.preference.read.encode"), items, parent); //$NON-NLS-1$
+		commentCharacterField = new StringFieldEditor(P_COMMENT_CHARACTER, Messages.getString("eclipse.propertieseditor.preference.comment.character"), 1, parent); //$NON-NLS-1$
 		commentCharacterField.setTextLimit(1);
 
 		final Group convGroup = new Group(parent, SWT.NONE);
@@ -55,8 +55,8 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 		convGd.horizontalSpan = 2;
 		convGroup.setLayoutData(convGd);
 		convGroup.setLayout(new GridLayout(1, true));
-		convGroup.setText(PropertiesEditor.res.getString("eclipse.propertieseditor.preference.convert.option.group")); //$NON-NLS-1$
-		notAllConvertEditor = new BooleanFieldEditor(P_NOT_ALL_CONVERT, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.convert"), convGroup) { //$NON-NLS-1$
+		convGroup.setText(Messages.getString("eclipse.propertieseditor.preference.convert.option.group")); //$NON-NLS-1$
+		notAllConvertEditor = new BooleanFieldEditor(P_NOT_ALL_CONVERT, Messages.getString("eclipse.propertieseditor.preference.convert"), convGroup) { //$NON-NLS-1$
 
 			/**
 			 * @see org.eclipse.jface.preference.BooleanFieldEditor#valueChanged(boolean, boolean)
@@ -67,7 +67,7 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 				super.valueChanged(oldValue, newValue);
 			}
 		};
-		notConvertCommentField = new BooleanFieldEditor(P_NOT_CONVERT_COMMENT, PropertiesEditor.res.getString("eclipse.propertieseditor.preference.convert.comment"), convGroup); //$NON-NLS-1$
+		notConvertCommentField = new BooleanFieldEditor(P_NOT_CONVERT_COMMENT, Messages.getString("eclipse.propertieseditor.preference.convert.comment"), convGroup); //$NON-NLS-1$
 		notConvertCommentField.setEnabled(!PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT), convGroup);
 
 		addField(commentCharacterField);

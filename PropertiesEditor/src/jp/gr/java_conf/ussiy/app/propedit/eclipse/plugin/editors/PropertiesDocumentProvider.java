@@ -9,9 +9,11 @@ import java.util.List;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener.IPropertiesDocumentListener;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
 import jp.gr.java_conf.ussiy.app.propedit.util.EncodeChanger;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtension;
@@ -64,6 +66,8 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 		IDocument document = null;
 		if (element instanceof IEditorInput) {
 			document = createEmptyDocument();
+			IProject project = ((IFileEditorInput)element).getFile().getProject();
+			readEncode = PropertyUtil.getEncode(project, readEncode);
 			if (!setDocumentContent(document, (IEditorInput) element, readEncode)) {
 				document = null;
 			}
@@ -105,8 +109,8 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 			IFileEditorInput input = (IFileEditorInput) element;
 
 			try {
-
-				String encoding = PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_ENCODE);
+				IProject project = input.getFile().getProject();
+				String encoding = PropertyUtil.getEncode(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_ENCODE));
 				if (encoding == null || encoding.equals("")) { //$NON-NLS-1$
 					encoding = getDefaultEncoding();
 				}
@@ -122,9 +126,9 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 				}
 				
 				String uniEscStr = null;
-				if (PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT)) {
+				if (PropertyUtil.getNotAllConvert(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT))) {
 					uniEscStr = document.get();
-				} else if (PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT)) {
+				} else if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
 					uniEscStr = EncodeChanger.unicode2UnicodeEscWithoutComment(document.get());
 				} else {
 					uniEscStr = EncodeChanger.unicode2UnicodeEsc(document.get());

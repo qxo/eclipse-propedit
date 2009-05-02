@@ -3,7 +3,6 @@ package jp.gr.java_conf.ussiy.app.propedit;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.ResourceBundle;
 import java.util.Vector;
 
 import javax.swing.AbstractButton;
@@ -17,8 +16,6 @@ import jp.gr.java_conf.ussiy.app.propedit.bean.Encode;
 import jp.gr.java_conf.ussiy.app.propedit.util.EncodeManager;
 
 class EncodeSelectPanel extends JPanel {
-
-	static ResourceBundle res = ResourceBundle.getBundle("lang"); //$NON-NLS-1$
 
 	private GridLayout gridLayout1 = new GridLayout();
 
@@ -49,7 +46,7 @@ class EncodeSelectPanel extends JPanel {
 
 	void jbInit() throws Exception {
 
-		jLabel1.setText(res.getString("jLabel1_Text")); //$NON-NLS-1$
+		jLabel1.setText(PropertiesEditor.getI18nProperty("jLabel1_Text")); //$NON-NLS-1$
 		this.setLayout(gridLayout1);
 		this.setBorder(BorderFactory.createEtchedBorder());
 		if (!store) {

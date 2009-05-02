@@ -10,6 +10,7 @@ import java.util.Map;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesEditorDuplicationCheckerPreference;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -57,7 +58,7 @@ public class CheckAndMarkDuplicateKey {
 		String line = null;
 		int cntLine = 0;
 		Map map = new HashMap();
-		String warn = jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor.res.getString("eclipse_editor_key_duplicate"); //$NON-NLS-1$
+		String warn = Messages.getString("eclipse_editor_key_duplicate"); //$NON-NLS-1$
 		boolean multipleValueFlg = false;
 		List duplicateKeyList = new ArrayList();
 
