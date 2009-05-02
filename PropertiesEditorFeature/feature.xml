@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit"
       label="%featureName"
-      version="5.0.1"
+      version="5.1.0"
       provider-name="%providerName"
       plugin="jp.gr.java_conf.ussiy.app.propedit"
       image="icons/pe_32.gif">
@@ -38,9 +38,9 @@
 
    <plugin
          id="jp.gr.java_conf.ussiy.app.propedit"
-         download-size="209"
-         install-size="209"
-         version="5.0.1"
+         download-size="210"
+         install-size="210"
+         version="5.1.0"
          unpack="false"/>
 
 </feature>
