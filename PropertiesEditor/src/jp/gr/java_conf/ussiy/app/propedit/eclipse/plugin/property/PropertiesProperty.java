@@ -6,10 +6,12 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -133,7 +135,13 @@ public class PropertiesProperty extends PropertyPage {
 		String notAllConvert = null;
 		String notConvertComment = null;
 		try {
-			IProject project = (IProject)getElement();
+			IProject project = null;
+			IAdaptable adaptable  = getElement();
+			if (adaptable instanceof IJavaProject) {
+				project = ((IJavaProject)adaptable).getProject();
+			} else {
+				project = (IProject)adaptable;
+			}
 			org = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_ORIGINAL_SETTINGS));
 			encode = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_ENCODE));
 			commentChar = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_COMMENT_CHARACTER));
