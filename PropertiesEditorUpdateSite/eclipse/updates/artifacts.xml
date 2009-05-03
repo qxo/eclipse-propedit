@@ -3,7 +3,7 @@
 <repository name='file:/D:/eclipse_project/PropertiesEditorUpdateSite/eclipse/updates/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1241271615957'/>
+    <property name='p2.timestamp' value='1241360459820'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
@@ -11,6 +11,12 @@
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
   <artifacts size='6'>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.1.0'>
+      <properties size='2'>
+        <property name='artifact.size' value='11983'/>
+        <property name='download.size' value='11983'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.0.0'>
       <properties size='2'>
         <property name='artifact.size' value='13919'/>
@@ -19,8 +25,8 @@
     </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='5.1.0'>
       <properties size='3'>
-        <property name='artifact.size' value='210723'/>
-        <property name='download.size' value='210723'/>
+        <property name='artifact.size' value='210825'/>
+        <property name='download.size' value='210825'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -36,12 +42,6 @@
         <property name='artifact.size' value='199445'/>
         <property name='download.size' value='199445'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.1.0'>
-      <properties size='2'>
-        <property name='artifact.size' value='11988'/>
-        <property name='download.size' value='11988'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.0.1'>
