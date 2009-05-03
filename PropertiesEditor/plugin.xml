@@ -48,7 +48,10 @@
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertiesProperty"
 				id="jp.gr.java_conf.ussiy.app.propedit.property.PropertiesProperty">
 			<enabledWhen>
-				<instanceof value="org.eclipse.core.resources.IProject"/>
+				<or>
+					<instanceof value="org.eclipse.core.resources.IProject"/>
+					<instanceof value="org.eclipse.jdt.core.IJavaProject"/>
+				</or>
 			</enabledWhen>
 		</page>
 	</extension>
