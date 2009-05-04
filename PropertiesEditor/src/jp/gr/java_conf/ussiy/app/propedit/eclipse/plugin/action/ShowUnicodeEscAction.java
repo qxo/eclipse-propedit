@@ -1,6 +1,5 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.action;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -8,10 +7,15 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import jp.gr.java_conf.ussiy.app.propedit.util.EncodeChanger;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.ILog;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
@@ -75,15 +79,35 @@ public class ShowUnicodeEscAction implements IEditorActionDelegate {
 		String editorText = textEditor.getDocumentProvider().getDocument(textEditor.getEditorInput()).get();
 		
 		IProject project = ((IFileEditorInput)textEditor.getEditorInput()).getFile().getProject();
+		String charcase = PropertyUtil.getCharCase(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_CONVERT_CHAR_CASE));
 		if (PropertyUtil.getNotAllConvert(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT))) {
 			text.setText(editorText);
 		} else if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
 			try {
-				text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText));
-			} catch (IOException e) {
+				if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
+					text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText, EncodeChanger.UPPERCASE));
+				} else {
+					text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText, EncodeChanger.LOWERCASE));
+				}
+			} catch (Exception e) {
+				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+				ILog log = PropertiesEditorPlugin.getDefault().getLog();
+				log.log(status);
+				ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		} else {
-			text.setText(EncodeChanger.unicode2UnicodeEsc(editorText));
+			try {
+				if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
+					text.setText(EncodeChanger.unicode2UnicodeEsc(editorText, EncodeChanger.UPPERCASE));
+				} else {
+					text.setText(EncodeChanger.unicode2UnicodeEsc(editorText, EncodeChanger.LOWERCASE));
+				}
+			} catch (Exception e) {
+				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+				ILog log = PropertiesEditorPlugin.getDefault().getLog();
+				log.log(status);
+				ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
+			}
 		}
 
 		// window open

@@ -115,4 +115,28 @@ public class PropertyUtil {
 		}
 		return preference;
 	}
+	
+	public static String getCharCase(IProject project, String preference) {
+		String org = null;
+		String charcase = null;
+		try {
+			org = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, PropertiesProperty.P_ORIGINAL_SETTINGS));
+			charcase = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, PropertiesProperty.P_CONVERT_CHAR_CASE));
+		} catch (CoreException e) {
+			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+			ILog log = PropertiesEditorPlugin.getDefault().getLog();
+			log.log(status);
+			ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
+		}
+		if (org != null) {
+			if (Boolean.valueOf(org).booleanValue()) {
+				if (charcase == null || charcase.equals("")) { //$NON-NLS-1$
+					return preference;
+				} else {
+					return charcase;
+				}
+			}
+		}
+		return preference;
+	}
 }
