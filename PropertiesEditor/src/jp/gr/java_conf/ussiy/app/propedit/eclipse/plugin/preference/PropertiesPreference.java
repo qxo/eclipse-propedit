@@ -6,6 +6,7 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.RadioGroupFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -35,11 +36,11 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 
 	private StringFieldEditor commentCharacterField;
 
-	private ComboFieldEditor convertCharCaseField;
+	private RadioGroupFieldEditor convertCharCaseField;
 
 	private String[] items = new String[] { System.getProperty("file.encoding"), "US-ASCII", "UTF-8", "UTF-16" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	
-	private String[] charCaseItems = new String[] { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") }; //$NON-NLS-1$ //$NON-NLS-2$
+	private String[][] charCaseItems = new String[][] { { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase") }, { Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") } }; //$NON-NLS-1$ //$NON-NLS-2$
 
 	public PropertiesPreference() {
 
@@ -55,7 +56,7 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 		encodeComboFieldEditor = new ComboFieldEditor(P_ENCODE, Messages.getString("eclipse.propertieseditor.preference.read.encode"), items, parent); //$NON-NLS-1$
 		commentCharacterField = new StringFieldEditor(P_COMMENT_CHARACTER, Messages.getString("eclipse.propertieseditor.preference.comment.character"), 1, parent); //$NON-NLS-1$
 		commentCharacterField.setTextLimit(1);
-		convertCharCaseField = new ComboFieldEditor(P_CONVERT_CHAR_CASE, Messages.getString("eclipse.propertieseditor.preference.convert.char.case"), charCaseItems, parent); //$NON-NLS-1$
+		convertCharCaseField = new RadioGroupFieldEditor(P_CONVERT_CHAR_CASE, Messages.getString("eclipse.propertieseditor.preference.convert.char.case"), 2, charCaseItems, parent, true); //$NON-NLS-1$
 
 		final Group convGroup = new Group(parent, SWT.NONE);
 		GridData convGd = new GridData(GridData.FILL_HORIZONTAL);
