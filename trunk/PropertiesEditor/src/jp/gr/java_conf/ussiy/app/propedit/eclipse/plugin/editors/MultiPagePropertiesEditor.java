@@ -1,6 +1,5 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -13,7 +12,10 @@ import jp.gr.java_conf.ussiy.app.propedit.util.EncodeChanger;
 
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.PreferenceConverter;
@@ -209,9 +211,18 @@ public class MultiPagePropertiesEditor extends MultiPageEditorPart implements IG
 		String editorText = editor.getDocumentProvider().getDocument(editor.getEditorInput()).get();
 		IProject project = ((IFileEditorInput)editor.getEditorInput()).getFile().getProject();
 		if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
+			String charcase = PropertyUtil.getCharCase(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_CONVERT_CHAR_CASE));
 			try {
-				text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText));
-			} catch (IOException e) {
+				if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
+					text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText, EncodeChanger.UPPERCASE));
+				} else {
+					text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText, EncodeChanger.LOWERCASE));
+				}
+			} catch (Exception e) {
+				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+				ILog log = PropertiesEditorPlugin.getDefault().getLog();
+				log.log(status);
+				ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 			}
 		} else {
 			text.setText(EncodeChanger.unicode2UnicodeEsc(editorText));

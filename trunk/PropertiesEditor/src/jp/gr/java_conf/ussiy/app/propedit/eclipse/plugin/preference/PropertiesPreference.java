@@ -24,6 +24,8 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 	public static final String P_NOT_ALL_CONVERT = "notConvert"; //$NON-NLS-1$
 
 	public static final String P_COMMENT_CHARACTER = "commentCharacter"; //$NON-NLS-1$
+	
+	public static final String P_CONVERT_CHAR_CASE = "convertCharCase"; //$NON-NLS-1$
 
 	private ComboFieldEditor encodeComboFieldEditor;
 
@@ -33,7 +35,11 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 
 	private StringFieldEditor commentCharacterField;
 
+	private ComboFieldEditor convertCharCaseField;
+
 	private String[] items = new String[] { System.getProperty("file.encoding"), "US-ASCII", "UTF-8", "UTF-16" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+	
+	private String[] charCaseItems = new String[] { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") }; //$NON-NLS-1$ //$NON-NLS-2$
 
 	public PropertiesPreference() {
 
@@ -49,6 +55,7 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 		encodeComboFieldEditor = new ComboFieldEditor(P_ENCODE, Messages.getString("eclipse.propertieseditor.preference.read.encode"), items, parent); //$NON-NLS-1$
 		commentCharacterField = new StringFieldEditor(P_COMMENT_CHARACTER, Messages.getString("eclipse.propertieseditor.preference.comment.character"), 1, parent); //$NON-NLS-1$
 		commentCharacterField.setTextLimit(1);
+		convertCharCaseField = new ComboFieldEditor(P_CONVERT_CHAR_CASE, Messages.getString("eclipse.propertieseditor.preference.convert.char.case"), charCaseItems, parent); //$NON-NLS-1$
 
 		final Group convGroup = new Group(parent, SWT.NONE);
 		GridData convGd = new GridData(GridData.FILL_HORIZONTAL);
@@ -72,6 +79,7 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 
 		addField(commentCharacterField);
 		addField(encodeComboFieldEditor);
+		addField(convertCharCaseField);
 		addField(notAllConvertEditor);
 		addField(notConvertCommentField);
 	}

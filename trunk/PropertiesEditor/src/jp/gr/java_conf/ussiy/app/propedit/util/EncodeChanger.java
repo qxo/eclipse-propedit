@@ -15,6 +15,10 @@ import java.io.StringReader;
  *  
  */
 public class EncodeChanger {
+	
+	public static final int LOWERCASE = 0;
+	
+	public static final int UPPERCASE = 1;
 
 	/**
 	 * 
@@ -22,6 +26,15 @@ public class EncodeChanger {
 	 * @since 1.0.0
 	 */
 	public static String unicode2UnicodeEsc(String uniStr) {
+		return EncodeChanger.unicode2UnicodeEsc(uniStr, LOWERCASE);
+	}
+
+	/**
+	 * 
+	 * @param UniStr
+	 * @param charcase
+	 */
+	public static String unicode2UnicodeEsc(String uniStr, int charcase) {
 
 		StringBuffer ret = new StringBuffer();
 		if (uniStr == null) {
@@ -34,7 +47,12 @@ public class EncodeChanger {
 				ret.append(character);
 			} else {
 				ret.append("\\u"); //$NON-NLS-1$
-				String hexStr = Integer.toHexString(character);
+				String hexStr = null;
+				if (charcase == UPPERCASE) {
+					hexStr = Integer.toHexString(character).toUpperCase();
+				} else {
+					hexStr = Integer.toHexString(character).toLowerCase();
+				}
 				int zeroCount = 4 - hexStr.length();
 				for (int j = 0; j < zeroCount; j++) {
 					ret.append('0');
@@ -79,6 +97,10 @@ public class EncodeChanger {
 	}
 
 	public static String unicode2UnicodeEscWithoutComment(String uniStr) throws IOException {
+		return EncodeChanger.unicode2UnicodeEscWithoutComment(uniStr, LOWERCASE);
+	}
+
+	public static String unicode2UnicodeEscWithoutComment(String uniStr, int charcase) throws IOException {
 
 		StringBuffer buf = new StringBuffer();
 		BufferedReader reader = new BufferedReader(new StringReader(uniStr));
@@ -93,7 +115,7 @@ public class EncodeChanger {
 				} else {
 					continueFlg = false;
 				}
-				buf.append(EncodeChanger.unicode2UnicodeEsc(line));
+				buf.append(EncodeChanger.unicode2UnicodeEsc(line, charcase));
 			}
 			buf.append("\n"); //$NON-NLS-1$
 		}
