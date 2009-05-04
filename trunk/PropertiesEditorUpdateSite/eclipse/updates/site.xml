@@ -3,15 +3,6 @@
    <description url="%projectHomePage">
       %description
    </description>
-   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.0.0.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.0.0">
-      <category name="PropertiesEditor"/>
-   </feature>
-   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.0.1.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.0.1">
-      <category name="PropertiesEditor"/>
-   </feature>
-   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.1.0.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.1.0">
-      <category name="PropertiesEditor"/>
-   </feature>
    <feature url="features/jp.gr.java_conf.ussiy.app.propedit_3.7.0.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="3.7.0">
       <category name="PropertiesEditorForEclipse2.1"/>
    </feature>
@@ -107,6 +98,18 @@
    </feature>
    <feature url="features/jp.gr.java_conf.ussiy.app.propedit_4.7.10.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="4.7.10">
       <category name="PropertiesEditorForEclipse3.x"/>
+   </feature>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.0.0.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.0.0">
+      <category name="PropertiesEditor"/>
+   </feature>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.0.1.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.0.1">
+      <category name="PropertiesEditor"/>
+   </feature>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.1.0.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.1.0">
+      <category name="PropertiesEditor"/>
+   </feature>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit_5.1.1.jar" id="jp.gr.java_conf.ussiy.app.propedit" version="5.1.1">
+      <category name="PropertiesEditor"/>
    </feature>
    <category-def name="PropertiesEditor" label="PropertiesEditor"/>
    <category-def name="PropertiesEditorForEclipse2.1" label="old release-Properties Editor for Eclipse2.1.x"/>
