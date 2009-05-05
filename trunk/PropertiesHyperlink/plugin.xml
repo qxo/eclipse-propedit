@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+	<extension
+			point="jp.gr.java_conf.ussiy.app.propedit.hyperlinkdetectors">
+		<hyperlinkdetector class="jp.gr.java_conf.ussiy.app.propedit.hyperlink.PropertiesHyperlinkDetector"/>
+	</extension>
+
+</plugin>
