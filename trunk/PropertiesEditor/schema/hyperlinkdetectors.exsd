@@ -3,10 +3,10 @@
 <schema targetNamespace="jp.gr.java_conf.ussiy.app.propedit" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appInfo>
-         <meta.schema plugin="jp.gr.java_conf.ussiy.app.propedit" id="listeners" name="Extension Unicode Convert"/>
+         <meta.schema plugin="jp.gr.java_conf.ussiy.app.propedit" id="hyperlinkdetectors" name="Extension Hyperlink Detector"/>
       </appInfo>
       <documentation>
-         This extension point should be used to unicode convert at saving on PropertiesEditor.
+         This extension point should be used to adding function to property editor.
       </documentation>
    </annotation>
 
@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <choice minOccurs="0" maxOccurs="unbounded">
-            <element ref="listener"/>
+            <element ref="hyperlinkdetector"/>
          </choice>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -44,7 +44,7 @@
       </complexType>
    </element>
 
-   <element name="listener">
+   <element name="hyperlinkdetector">
       <complexType>
          <attribute name="class" type="string" use="required">
             <annotation>
@@ -66,9 +66,9 @@
 &lt;p&gt;
 &lt;pre&gt;
 &lt;extension
-      point=&quot;jp.gr.java_conf.ussiy.app.propedit.listeners&quot;&gt;
+      point=&quot;jp.gr.java_conf.ussiy.app.propedit.hyperlinkdetectors&quot;&gt;
    &lt;listener
-         class=&quot;com.example.xyz.ConvertListenerExtension&quot;/&gt;
+         class=&quot;com.example.xyz.URLHyperlinkDetectorExtension&quot;/&gt;
 &lt;/extension&gt;
 &lt;/pre&gt;
 &lt;/p&gt;
@@ -82,7 +82,7 @@
       <documentation>
          This extension point requires that a class that
 implements  
-&lt;samp&gt;jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener.IPropertiesDocumentListener&lt;/samp&gt;
+&lt;samp&gt;jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.detector.IHyperlinkDetector&lt;/samp&gt;
 interface.
       </documentation>
    </annotation>
