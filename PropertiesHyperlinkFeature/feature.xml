@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="jp.gr.java_conf.ussiy.app.propedit.hyperlink"
+      label="%featureName"
+      version="1.0.0"
+      provider-name="%providerName"
+      plugin="jp.gr.java_conf.ussiy.app.propedit.hyperlink">
+
+   <description url="%descriptionUrl">
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseUrl">
+      %license
+   </license>
+
+   <url>
+      <update label="%updateSiteName" url="http://propedit.sourceforge.jp/eclipse/updates/"/>
+      <discovery label="%discoverySiteName" url="http://propedit.sourceforge.jp/eclipse/updates/"/>
+   </url>
+
+   <requires>
+      <import plugin="jp.gr.java_conf.ussiy.app.propedit" version="5.1.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.jdt.ui"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.ide"/>
+   </requires>
+
+   <plugin
+         id="jp.gr.java_conf.ussiy.app.propedit.hyperlink"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
