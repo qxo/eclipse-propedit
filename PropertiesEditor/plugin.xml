@@ -3,6 +3,7 @@
 <plugin>
 
 	<extension-point id="listeners" name="Extension Unicode Convert" schema="schema/listeners.exsd"/>
+	<extension-point id="hyperlinkdetectors" name="Extension Hyperlink Detector" schema="schema/hyperlinkdetectors.exsd"/>
 
 	<!-- Extensions -->
 	<!-- properties editor -->
