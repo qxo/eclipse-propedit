@@ -117,6 +117,9 @@
    <feature url="features/jp.gr.java_conf.ussiy.app.propedit.hyperlink_1.0.0.jar" id="jp.gr.java_conf.ussiy.app.propedit.hyperlink" version="1.0.0">
       <category name="PropertiesHyperlinkDetector"/>
    </feature>
+   <feature url="features/jp.gr.java_conf.ussiy.app.propedit.hyperlink_1.0.1.jar" id="jp.gr.java_conf.ussiy.app.propedit.hyperlink" version="1.0.1">
+      <category name="PropertiesHyperlinkDetector"/>
+   </feature>
    <category-def name="PropertiesEditor" label="PropertiesEditor"/>
    <category-def name="PropertiesEditorForEclipse2.1" label="old release-Properties Editor for Eclipse2.1.x"/>
    <category-def name="PropertiesEditorForEclipse3.x" label="old release-Properties Editor for Eclipse3.x"/>
