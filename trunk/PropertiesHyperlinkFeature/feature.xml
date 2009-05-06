@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit.hyperlink"
       label="%featureName"
-      version="1.0.0"
+      version="1.0.1"
       provider-name="%providerName"
       plugin="jp.gr.java_conf.ussiy.app.propedit.hyperlink">
 
