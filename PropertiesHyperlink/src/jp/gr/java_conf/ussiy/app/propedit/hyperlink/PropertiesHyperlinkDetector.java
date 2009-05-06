@@ -42,7 +42,8 @@ public class PropertiesHyperlinkDetector implements IHyperlinkDetector {
 				if (c1 == '\\' && (c2 == '\r' || c2 == '\n')) {
 					return null;
 				}
-			} else if (endPos - 3 >= 0) {
+			}
+			if (endPos - 3 >= 0) {
 				char c1 = document.getChar(endPos - 3);
 				char c2 = document.getChar(endPos - 2);
 				char c3 = document.getChar(endPos - 1);
