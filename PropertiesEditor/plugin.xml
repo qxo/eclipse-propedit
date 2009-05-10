@@ -197,5 +197,24 @@
 				schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
 				sequence="Ctrl+I"/>
 	</extension>
+	<extension
+			id="jp.gr.java_conf.ussiy.app.propedit.propertiesCompletionProposalComputer"
+			point="org.eclipse.jdt.ui.javaCompletionProposalComputer">
+		<javaCompletionProposalComputer
+				activate="true"
+				caategoryId="org.eclipse.jdt.ui.defaultProposalCategory"
+				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.proposal.PropertiesCompletionProposalComputer">
+			<partition type="__java_string"/>
+		</javaCompletionProposalComputer>
+	</extension>
+	<extension
+			point="org.eclipse.core.contenttype.contentTypes">
+		<content-type
+				id="jp.gr.java_conf.ussiy.app.propedit.properties.conent.type"
+				name="Properties File"
+				base-type="org.eclipse.core.runtime.text"
+				file-extensions="properties"
+				default-charset=""/>
+	</extension>
 
 </plugin>

@@ -26,6 +26,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentPartitioner;
 import org.eclipse.jface.text.rules.FastPartitioner;
@@ -80,7 +81,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 		for (int i = 0; i < listeners.size(); i++) {
 			IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
 			try {
-				listener.beforeConvertAtLoadingDocument(document.get(), element);
+				listener.beforeConvertAtLoadingDocument(document, element);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -100,7 +101,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 			for (int i = 0; i < listeners.size(); i++) {
 				IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
 				try {
-					listener.afterConvertAtLoadingDocument(document.get(), element);
+					listener.afterConvertAtLoadingDocument(document, element);
 				} catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -131,9 +132,11 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 				for (int i = 0; i < listeners.size(); i++) {
 					IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
 					try {
-						listener.beforeUnicodeConvertAtSavingDocument(monitor, document.get(), input);
+						listener.beforeUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
 					} catch(Exception e) {
-						e.printStackTrace();
+						IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+						ILog log = PropertiesEditorPlugin.getDefault().getLog();
+						log.log(status);
 					}
 				}
 				
@@ -168,13 +171,16 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 						ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 					}
 				}
+				document = new Document(uniEscStr);
 				
 				for (int i = 0; i < listeners.size(); i++) {
 					IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
 					try {
-						listener.afterUnicodeConvertAtSavingDocument(monitor, uniEscStr, input);
+						listener.afterUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
 					} catch(Exception e) {
-						e.printStackTrace();
+						IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+						ILog log = PropertiesEditorPlugin.getDefault().getLog();
+						log.log(status);
 					}
 				}
 				

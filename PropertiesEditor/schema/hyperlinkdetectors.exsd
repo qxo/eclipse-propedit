@@ -49,7 +49,7 @@
          <attribute name="class" type="string" use="required">
             <annotation>
                <documentation>
-                  This extension point requires that a class that implements jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener.IPropertiesDocumentListener interface.
+                  This extension point requires that a class that implements jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.detector.IHyperlinkDetector interface.
                </documentation>
             </annotation>
          </attribute>
