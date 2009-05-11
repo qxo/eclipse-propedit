@@ -64,8 +64,15 @@ public class PropertiesCompletionProposalComputer implements
 				ILog log = PropertiesEditorPlugin.getDefault().getLog();
 				log.log(status);
 			}
-			
-			keyList.addAll(prop.keySet());
+			Iterator ite = prop.keySet().iterator();
+			while (ite.hasNext()) {
+				String key = (String)ite.next();
+				if (keyList.contains(key)) {
+					continue;
+				} else {
+					keyList.addAll(prop.keySet());
+				}
+			}
 		}
 		
 		String source = context.getDocument().get();
@@ -81,6 +88,7 @@ public class PropertiesCompletionProposalComputer implements
 		
 		List list = new ArrayList();
 		
+		Collections.sort(keyList);
 		Iterator ite = keyList.iterator();
 		while (ite.hasNext()) {
 			String key = (String)ite.next();
