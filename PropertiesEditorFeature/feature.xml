@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit"
       label="%featureName"
-      version="5.2.0"
+      version="5.2.1"
       provider-name="%providerName"
       plugin="jp.gr.java_conf.ussiy.app.propedit"
       image="icons/pe_32.gif">
