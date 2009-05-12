@@ -1,6 +1,7 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.proposal;
 
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -24,7 +25,10 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.ui.text.java.ContentAssistInvocationContext;
 import org.eclipse.jdt.ui.text.java.IJavaCompletionProposalComputer;
 import org.eclipse.jdt.ui.text.java.JavaContentAssistInvocationContext;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.text.contentassist.CompletionProposal;
+import org.eclipse.swt.widgets.Shell;
 
 public class PropertiesCompletionProposalComputer implements
 		IJavaCompletionProposalComputer {
@@ -48,7 +52,42 @@ public class PropertiesCompletionProposalComputer implements
 			log.log(status);
 		}
 
-		IFile[] pFiles = findFileExt(project, outputPath, "properties");
+		class GetPropertyFiles implements IRunnableWithProgress {
+			
+			private IFile[] files = null;
+			private IProject project = null;
+			private IPath excludePath = null;
+			
+			public GetPropertyFiles(IProject project, IPath excludePath) {
+				this.project = project;
+				this.excludePath = excludePath;
+			}
+			
+			public void run(IProgressMonitor monitor)
+					throws InvocationTargetException, InterruptedException {
+				monitor.setTaskName("searching property");
+				files = findFileExt(project, excludePath, "properties");
+				monitor.done();
+			}
+			
+			public IFile[] getResult() {
+				return this.files;
+			}
+			
+		}
+
+		Shell shell = PropertiesEditorPlugin.getDefault().getWorkbench().getActiveWorkbenchWindow().getShell();
+		ProgressMonitorDialog dialog = new ProgressMonitorDialog(shell);
+		GetPropertyFiles getPropFiles = new GetPropertyFiles(project, outputPath);
+		try {
+			dialog.run(true, false, getPropFiles);
+		} catch (InvocationTargetException e) {
+			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+			ILog log = PropertiesEditorPlugin.getDefault().getLog();
+			log.log(status);
+		} catch (InterruptedException e) {
+		}
+		IFile[] pFiles = getPropFiles.getResult();
 		
 		List keyList = new ArrayList();
 		for (int i = 0; i < pFiles.length; i++) {
@@ -108,18 +147,13 @@ public class PropertiesCompletionProposalComputer implements
 	}
 
 	public String getErrorMessage() {
-		// TODO Auto-generated method stub
-		return null;
+		return "An error happened when searching the property.";
 	}
 
 	public void sessionEnded() {
-		// TODO Auto-generated method stub
-
 	}
 
 	public void sessionStarted() {
-		// TODO Auto-generated method stub
-
 	}
 	
 	public IFile[] findFileExt(IContainer container, IPath excludePath, String extension) {
