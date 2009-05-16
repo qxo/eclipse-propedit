@@ -4,7 +4,6 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.ILog;
@@ -29,8 +28,6 @@ import org.eclipse.ui.dialogs.PropertyPage;
 
 public class PropertiesProperty extends PropertyPage {
 
-	public static final String P_ENCODE = "readEncode"; //$NON-NLS-1$
-
 	public static final String P_NOT_CONVERT_COMMENT = "notConvertComment"; //$NON-NLS-1$
 
 	public static final String P_NOT_ALL_CONVERT = "notConvert"; //$NON-NLS-1$
@@ -40,14 +37,10 @@ public class PropertiesProperty extends PropertyPage {
 	public static final String P_CONVERT_CHAR_CASE = "convertCharCase"; //$NON-NLS-1$
 	
 	public static final String P_ORIGINAL_SETTINGS = "originalSettings"; //$NON-NLS-1$
-
-	private String[] items = new String[] { System.getProperty("file.encoding"), "US-ASCII", "UTF-8", "UTF-16" }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 	
 	private String[] charCaseItems = new String[] { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") }; //$NON-NLS-1$ //$NON-NLS-2$
 	
 	private Button orgCheckBox = null;
-	
-	private Combo encodeCombo = null;
 	
 	private Text commentText = null;
 	
@@ -73,7 +66,6 @@ public class PropertiesProperty extends PropertyPage {
 		orgCheckBox.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				if (orgCheckBox.getSelection()) {
-					encodeCombo.setEnabled(true);
 					commentText.setEnabled(true);
 					convertCharCaseCombo.setEnabled(true);
 					notAllConvertCheckBox.setEnabled(true);
@@ -83,7 +75,6 @@ public class PropertiesProperty extends PropertyPage {
 						notConvertCommentCheckBox.setEnabled(true);
 					}
 				} else {
-					encodeCombo.setEnabled(false);
 					commentText.setEnabled(false);
 					convertCharCaseCombo.setEnabled(false);
 					notAllConvertCheckBox.setEnabled(false);
@@ -97,13 +88,7 @@ public class PropertiesProperty extends PropertyPage {
 		gd.horizontalSpan = 2;
 		separator.setLayoutData(gd);
 		
-		Label label= new Label(composite, SWT.NONE);
-		label.setText(Messages.getString("eclipse.propertieseditor.preference.read.encode")); //$NON-NLS-1$
-		
-		encodeCombo = new Combo(composite, SWT.DROP_DOWN);
-		encodeCombo.setItems(items);
-		
-		label = new Label(composite, SWT.NONE);
+		Label label = new Label(composite, SWT.NONE);
 		label.setText(Messages.getString("eclipse.propertieseditor.preference.comment.character")); //$NON-NLS-1$
 		
 		commentText = new Text(composite, SWT.BORDER);
@@ -144,7 +129,6 @@ public class PropertiesProperty extends PropertyPage {
 	
 	private void initialize() {
 		String org = null;
-		String encode = null;
 		String commentChar = null;
 		String charcase = null;
 		String notAllConvert = null;
@@ -158,7 +142,6 @@ public class PropertiesProperty extends PropertyPage {
 				project = (IProject)adaptable;
 			}
 			org = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_ORIGINAL_SETTINGS));
-			encode = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_ENCODE));
 			commentChar = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_COMMENT_CHARACTER));
 			charcase = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_CONVERT_CHAR_CASE));
 			notAllConvert = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_NOT_ALL_CONVERT));
@@ -170,11 +153,6 @@ public class PropertiesProperty extends PropertyPage {
 			ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 		
-		if (encode != null) {
-			encodeCombo.setText(encode);
-		} else {
-			encodeCombo.setText(ResourcesPlugin.getEncoding());
-		}
 		if (commentChar != null) {
 			commentText.setText(commentChar);
 		} else {
@@ -205,7 +183,6 @@ public class PropertiesProperty extends PropertyPage {
 		if (org != null) {
 			orgCheckBox.setSelection(Boolean.valueOf(org).booleanValue());
 			if (orgCheckBox.getSelection()) {
-				encodeCombo.setEnabled(true);
 				commentText.setEnabled(true);
 				convertCharCaseCombo.setEnabled(true);
 				notAllConvertCheckBox.setEnabled(true);
@@ -215,7 +192,6 @@ public class PropertiesProperty extends PropertyPage {
 					notConvertCommentCheckBox.setEnabled(true);
 				}
 			} else {
-				encodeCombo.setEnabled(false);
 				commentText.setEnabled(false);
 				convertCharCaseCombo.setEnabled(false);
 				notAllConvertCheckBox.setEnabled(false);
@@ -223,7 +199,6 @@ public class PropertiesProperty extends PropertyPage {
 			}
 		} else {
 			orgCheckBox.setSelection(false);
-			encodeCombo.setEnabled(false);
 			commentText.setEnabled(false);
 			convertCharCaseCombo.setEnabled(false);
 			notAllConvertCheckBox.setEnabled(false);
@@ -237,9 +212,15 @@ public class PropertiesProperty extends PropertyPage {
 	 */
 	protected void performApply() {
 		try {
-			IProject project = (IProject)getElement();
+			IAdaptable adapter = getElement();
+			IProject project = null;
+			if (adapter instanceof IJavaProject) {
+				IJavaProject jp = (IJavaProject)adapter;
+				project = jp.getProject();
+			} else {
+				project = (IProject)adapter;
+			}
 			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_ORIGINAL_SETTINGS), Boolean.toString(orgCheckBox.getSelection()));
-			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_ENCODE), encodeCombo.getText());
 			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_COMMENT_CHARACTER), commentText.getText());
 			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_CONVERT_CHAR_CASE), convertCharCaseCombo.getText());
 			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_NOT_ALL_CONVERT), Boolean.toString(notAllConvertCheckBox.getSelection()));
@@ -248,19 +229,17 @@ public class PropertiesProperty extends PropertyPage {
 			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
 			ILog log = PropertiesEditorPlugin.getDefault().getLog();
 			log.log(status);
-			ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.save.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
+			ErrorDialog.openError(getShell(), Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.save.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
 	protected void performDefaults() {
-		encodeCombo.setText(ResourcesPlugin.getEncoding());
 		commentText.setText("#"); //$NON-NLS-1$
 		convertCharCaseCombo.setText(Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase"));
 		notAllConvertCheckBox.setSelection(false);
 		notConvertCommentCheckBox.setEnabled(false);
 		notConvertCommentCheckBox.setSelection(false);
 		orgCheckBox.setSelection(false);
-		encodeCombo.setEnabled(false);
 		commentText.setEnabled(false);
 		convertCharCaseCombo.setEnabled(false);
 		notAllConvertCheckBox.setEnabled(false);

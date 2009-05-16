@@ -1,8 +1,5 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +10,6 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import jp.gr.java_conf.ussiy.app.propedit.util.EncodeChanger;
 
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -30,11 +26,8 @@ import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentPartitioner;
 import org.eclipse.jface.text.rules.FastPartitioner;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.editors.text.FileDocumentProvider;
-import org.eclipse.ui.texteditor.ResourceMarkerAnnotationModel;
 
 public class PropertiesDocumentProvider extends FileDocumentProvider {
 	private static final String EXTENSION_POINT = "jp.gr.java_conf.ussiy.app.propedit.listeners"; //$NON-NLS-1$
@@ -63,19 +56,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 	
 	protected IDocument createDocument(Object element) throws CoreException {
 
-		String readEncode = PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_ENCODE);
-		if (readEncode == null || readEncode.equals("")) { //$NON-NLS-1$
-			readEncode = getDefaultEncoding();
-		}
-		IDocument document = null;
-		if (element instanceof IEditorInput) {
-			document = createEmptyDocument();
-			IProject project = ((IFileEditorInput)element).getFile().getProject();
-			readEncode = PropertyUtil.getEncode(project, readEncode);
-			if (!setDocumentContent(document, (IEditorInput) element, readEncode)) {
-				document = null;
-			}
-		}
+		IDocument document = super.createDocument(element);
 		
 		List listeners = computePropertiesDocumentListeners();
 		for (int i = 0; i < listeners.size(); i++) {
@@ -122,116 +103,63 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 
 			IProject project = input.getFile().getProject();
 
-			try {
-				String encoding = PropertyUtil.getEncode(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_ENCODE));
-				if (encoding == null || encoding.equals("")) { //$NON-NLS-1$
-					encoding = getDefaultEncoding();
+			List listeners = computePropertiesDocumentListeners();
+			for (int i = 0; i < listeners.size(); i++) {
+				IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
+				try {
+					listener.beforeUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
+				} catch(Exception e) {
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					ILog log = PropertiesEditorPlugin.getDefault().getLog();
+					log.log(status);
 				}
-
-				List listeners = computePropertiesDocumentListeners();
-				for (int i = 0; i < listeners.size(); i++) {
-					IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
-					try {
-						listener.beforeUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
-					} catch(Exception e) {
-						IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-						ILog log = PropertiesEditorPlugin.getDefault().getLog();
-						log.log(status);
+			}
+			
+			String uniEscStr = null;
+			String charcase = PropertyUtil.getCharCase(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_CONVERT_CHAR_CASE));
+			if (PropertyUtil.getNotAllConvert(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT))) {
+				uniEscStr = document.get();
+			} else if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
+				try {
+					if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
+						uniEscStr = EncodeChanger.unicode2UnicodeEscWithoutComment(document.get(), EncodeChanger.UPPERCASE);
+					} else {
+						uniEscStr = EncodeChanger.unicode2UnicodeEscWithoutComment(document.get(), EncodeChanger.LOWERCASE);
 					}
+				} catch (Exception e) {
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					ILog log = PropertiesEditorPlugin.getDefault().getLog();
+					log.log(status);
+					ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 				}
-				
-				String uniEscStr = null;
-				String charcase = PropertyUtil.getCharCase(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_CONVERT_CHAR_CASE));
-				if (PropertyUtil.getNotAllConvert(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_ALL_CONVERT))) {
-					uniEscStr = document.get();
-				} else if (PropertyUtil.getNotConvertComment(project, PropertiesEditorPlugin.getDefault().getPreferenceStore().getBoolean(PropertiesPreference.P_NOT_CONVERT_COMMENT))) {
-					try {
-						if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
-							uniEscStr = EncodeChanger.unicode2UnicodeEscWithoutComment(document.get(), EncodeChanger.UPPERCASE);
-						} else {
-							uniEscStr = EncodeChanger.unicode2UnicodeEscWithoutComment(document.get(), EncodeChanger.LOWERCASE);
-						}
-					} catch (Exception e) {
-						IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-						ILog log = PropertiesEditorPlugin.getDefault().getLog();
-						log.log(status);
-						ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
+			} else {
+				try {
+					if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
+						uniEscStr = EncodeChanger.unicode2UnicodeEsc(document.get(), EncodeChanger.UPPERCASE);
+					} else {
+						uniEscStr = EncodeChanger.unicode2UnicodeEsc(document.get(), EncodeChanger.LOWERCASE);
 					}
-				} else {
-					try {
-						if (Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase").equals(charcase)) { //$NON-NLS-1$
-							uniEscStr = EncodeChanger.unicode2UnicodeEsc(document.get(), EncodeChanger.UPPERCASE);
-						} else {
-							uniEscStr = EncodeChanger.unicode2UnicodeEsc(document.get(), EncodeChanger.LOWERCASE);
-						}
-					} catch (Exception e) {
-						IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-						ILog log = PropertiesEditorPlugin.getDefault().getLog();
-						log.log(status);
-						ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
-					}
+				} catch (Exception e) {
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					ILog log = PropertiesEditorPlugin.getDefault().getLog();
+					log.log(status);
+					ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
 				}
-				document = new Document(uniEscStr);
-				
-				for (int i = 0; i < listeners.size(); i++) {
-					IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
-					try {
-						listener.afterUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
-					} catch(Exception e) {
-						IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-						ILog log = PropertiesEditorPlugin.getDefault().getLog();
-						log.log(status);
-					}
+			}
+			document = new Document(uniEscStr);
+			
+			for (int i = 0; i < listeners.size(); i++) {
+				IPropertiesDocumentListener listener = (IPropertiesDocumentListener)listeners.get(i);
+				try {
+					listener.afterUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
+				} catch(Exception e) {
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					ILog log = PropertiesEditorPlugin.getDefault().getLog();
+					log.log(status);
 				}
-				
-				InputStream stream = new ByteArrayInputStream(uniEscStr.toString().getBytes(encoding));
-				IFile file = input.getFile();
-
-				if (file.exists()) {
-
-					FileInfo info = (FileInfo) getElementInfo(element);
-
-					if (info != null && !overwrite) {
-						checkSynchronizationState(info.fModificationStamp, file);
-
-						// inform about the upcoming content change
-					}
-					fireElementStateChanging(element);
-					try {
-						file.setContents(stream, overwrite, true, monitor);
-					} catch (CoreException x) {
-						// inform about failure
-						fireElementStateChangeFailed(element);
-						throw x;
-					} catch (RuntimeException x) {
-						// inform about failure
-						fireElementStateChangeFailed(element);
-						throw x;
-					}
-
-					// If here, the editor state will be flipped to "not dirty".
-					// Thus, the state changing flag will be reset.
-
-					if (info != null) {
-
-						ResourceMarkerAnnotationModel model = (ResourceMarkerAnnotationModel) info.fModel;
-						model.updateMarkers(info.fDocument);
-
-						info.fModificationStamp = computeModificationStamp(file);
-					}
-
-				} else {
-					super.doSaveDocument(monitor, element, document, overwrite);
-					return;
-				}
-
-			} catch (IOException x) {
-				IStatus s = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, x.getMessage(), x);
-				throw new CoreException(s);
 			}
 
-		} else {
-			super.doSaveDocument(monitor, element, document, overwrite);
 		}
+		super.doSaveDocument(monitor, element, document, overwrite);
 	}
 }

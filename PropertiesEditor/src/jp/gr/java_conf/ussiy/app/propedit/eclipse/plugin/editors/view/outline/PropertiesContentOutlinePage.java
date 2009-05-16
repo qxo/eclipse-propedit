@@ -1,4 +1,4 @@
-package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors;
+package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.view.outline;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -148,7 +148,7 @@ public class PropertiesContentOutlinePage extends ContentOutlinePage {
 	/**
 	 * Updates the outline page.
 	 */
-	protected void update() {
+	public void update() {
 		TreeViewer viewer= getTreeViewer();
 		if (viewer != null) {
 			Control control= viewer.getControl();
