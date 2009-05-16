@@ -1,7 +1,6 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.action;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
-import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.MultiPagePropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.property.PropertyUtil;
@@ -26,9 +25,7 @@ public class ToggleCommentAction implements IEditorActionDelegate {
 	 * @see org.eclipse.ui.IEditorActionDelegate#setActiveEditor(org.eclipse.jface.action.IAction, org.eclipse.ui.IEditorPart)
 	 */
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
-		if (targetEditor instanceof MultiPagePropertiesEditor) {
-			textEditor = ((MultiPagePropertiesEditor)targetEditor).getEditor();
-		} else if (targetEditor instanceof PropertiesEditor) {
+		if (targetEditor instanceof PropertiesEditor) {
 			textEditor = (PropertiesEditor)targetEditor;
 		}
 		

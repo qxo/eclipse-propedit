@@ -12,30 +12,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
 
 public class PropertyUtil {
-	
-	public static String getEncode(IProject project, String preference) {
-		String org = null;
-		String encode = null;
-		try {
-			org = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, PropertiesProperty.P_ORIGINAL_SETTINGS));
-			encode = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, PropertiesProperty.P_ENCODE));
-		} catch (CoreException e) {
-			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-			ILog log = PropertiesEditorPlugin.getDefault().getLog();
-			log.log(status);
-			ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-		if (org != null) {
-			if (Boolean.valueOf(org).booleanValue()) {
-				if (encode == null || encode.equals("")) { //$NON-NLS-1$
-					return preference;
-				} else {
-					return encode;
-				}
-			}
-		}
-		return preference;
-	}
 
 	public static String getCommentChar(IProject project, String preference) {
 		String org = null;

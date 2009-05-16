@@ -2,7 +2,6 @@ package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.ColorManager;
-import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.MultiPagePropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.preference.BooleanFieldEditor;
@@ -130,12 +129,7 @@ public class PropertiesEditorPreference extends FieldEditorPreferencePage implem
 				for (int k = 0; k < editorReferences.length; k++) {
 					IEditorReference ref = editorReferences[k];
 					IEditorPart editorPart = ref.getEditor(false);
-					if (editorPart instanceof MultiPagePropertiesEditor) {
-						RGB rgb = PreferenceConverter.getColor(pStore, PropertiesEditorPreference.P_BACKGROUND_COLOR);
-						Color color = new ColorManager().getColor(rgb);
-						jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor editor = ((MultiPagePropertiesEditor) editorPart).getEditor();
-						editor.setBackground(color);
-					} else if (editorPart instanceof jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor) {
+					if (editorPart instanceof jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor) {
 						RGB rgb = PreferenceConverter.getColor(pStore, PropertiesEditorPreference.P_BACKGROUND_COLOR);
 						Color color = new ColorManager().getColor(rgb);
 						jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor editor =

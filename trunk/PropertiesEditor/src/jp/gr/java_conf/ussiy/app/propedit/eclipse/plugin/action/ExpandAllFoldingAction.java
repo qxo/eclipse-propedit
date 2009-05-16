@@ -2,7 +2,6 @@ package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.action;
 
 import java.util.Iterator;
 
-import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.MultiPagePropertiesEditor;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.PropertiesEditor;
 
 import org.eclipse.jface.action.IAction;
@@ -19,9 +18,7 @@ public class ExpandAllFoldingAction implements IEditorActionDelegate {
 	 * @see org.eclipse.ui.IEditorActionDelegate#setActiveEditor(org.eclipse.jface.action.IAction, org.eclipse.ui.IEditorPart)
 	 */
 	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
-		if (targetEditor instanceof MultiPagePropertiesEditor) {
-			textEditor = ((MultiPagePropertiesEditor)targetEditor).getEditor();
-		} else if (targetEditor instanceof PropertiesEditor) {
+		if (targetEditor instanceof PropertiesEditor) {
 			textEditor = (PropertiesEditor)targetEditor;
 		}
 	}

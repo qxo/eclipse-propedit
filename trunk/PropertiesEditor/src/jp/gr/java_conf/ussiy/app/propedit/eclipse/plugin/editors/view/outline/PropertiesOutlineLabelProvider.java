@@ -1,4 +1,4 @@
-package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors;
+package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.view.outline;
 
 import java.net.MalformedURLException;
 import java.net.URL;

@@ -214,6 +214,7 @@
 				name="Properties File"
 				base-type="org.eclipse.core.runtime.text"
 				file-extensions="properties"
+				priority="high"
 				default-charset=""/>
 	</extension>
 

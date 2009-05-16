@@ -3,7 +3,6 @@ package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.preferences.AbstractPreferenceInitializer;
 import org.eclipse.jface.preference.IPreferenceStore;
 
@@ -16,7 +15,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 
 		IPreferenceStore pStore = PropertiesEditorPlugin.getDefault().getPreferenceStore();
 		pStore.setDefault(PropertiesEditorDuplicationCheckerPreference.P_CHECK_KEY, false);
-		pStore.setDefault(PropertiesPreference.P_ENCODE, ResourcesPlugin.getEncoding());
 		pStore.setDefault(PropertiesPreference.P_COMMENT_CHARACTER, "#"); //$NON-NLS-1$
 		pStore.setDefault(PropertiesPreference.P_CONVERT_CHAR_CASE, Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase")); //$NON-NLS-1$
 		pStore.setDefault(PropertiesEditorPreference.P_COLLAPSE, false);

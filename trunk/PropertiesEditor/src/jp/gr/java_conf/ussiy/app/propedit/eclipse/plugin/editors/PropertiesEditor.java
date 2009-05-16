@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.view.outline.PropertiesContentOutlinePage;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesEditorPreference;
 
 import org.eclipse.core.runtime.CoreException;
@@ -96,6 +97,8 @@ public class PropertiesEditor extends TextEditor {
 
 		//turn projection mode on
 		viewer.doOperation(ProjectionViewer.TOGGLE);
+		
+		getSite().setSelectionProvider(viewer);
 
 		annotationModel = viewer
 				.getProjectionAnnotationModel();
