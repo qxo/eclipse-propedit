@@ -33,7 +33,7 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 
 	private RadioGroupFieldEditor convertCharCaseField;
 	
-	private String[][] charCaseItems = new String[][] { { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase") }, { Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") } }; //$NON-NLS-1$ //$NON-NLS-2$
+	private String[][] charCaseItems = new String[][] { { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase") }, { Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") } }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
 	public PropertiesPreference() {
 

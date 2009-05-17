@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Properties;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.util.PropertiesFileUtil;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IPath;
@@ -65,8 +65,8 @@ public class PropertiesCompletionProposalComputer implements
 			
 			public void run(IProgressMonitor monitor)
 					throws InvocationTargetException, InterruptedException {
-				monitor.setTaskName("searching property");
-				files = findFileExt(project, excludePath, "properties");
+				monitor.setTaskName(Messages.getString("eclipse.propertieseditor.PropertiesCompletionProposalComputer.0")); //$NON-NLS-1$
+				files = PropertiesFileUtil.findFileExt(project, excludePath, "properties"); //$NON-NLS-1$
 				monitor.done();
 			}
 			
@@ -116,7 +116,7 @@ public class PropertiesCompletionProposalComputer implements
 		
 		String source = context.getDocument().get();
 		int offset = context.getInvocationOffset();
-		int idx = source.charAt(offset) == '\"' ? source.lastIndexOf("\"", offset - 1) : source.lastIndexOf("\"", offset);
+		int idx = source.charAt(offset) == '\"' ? source.lastIndexOf("\"", offset - 1) : source.lastIndexOf("\"", offset); //$NON-NLS-1$ //$NON-NLS-2$
 		StringBuffer buf = new StringBuffer();
 		for (int i = idx + 1; i < offset; i++) {
 			char c = source.charAt(i);
@@ -147,46 +147,13 @@ public class PropertiesCompletionProposalComputer implements
 	}
 
 	public String getErrorMessage() {
-		return "An error happened when searching the property.";
+		return Messages.getString("eclipse.propertieseditor.PropertiesCompletionProposalComputer.4"); //$NON-NLS-1$
 	}
 
 	public void sessionEnded() {
 	}
 
 	public void sessionStarted() {
-	}
-	
-	public IFile[] findFileExt(IContainer container, IPath excludePath, String extension) {
-		IResource[] list = null;
-		try {
-			list = container.members();
-		} catch (CoreException e) {
-			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-			ILog log = PropertiesEditorPlugin.getDefault().getLog();
-			log.log(status);
-			return new IFile[0];
-		}
-		if (list == null) {
-			return new IFile[0];
-		}
-		List fileList = new ArrayList();
-		for (int i = 0; i < list.length; i++) {
-			if (list[i] instanceof IFile) {
-				if (extension.equals(list[i].getFileExtension())) {
-					fileList.add((IFile)list[i]);
-				}
-			} else 	if (list[i] instanceof IContainer) {
-				if (excludePath.matchingFirstSegments(list[i].getFullPath()) == excludePath.segmentCount()) {
-					continue;
-				}
-				IFile[] files = findFileExt((IContainer)list[i], excludePath, extension);
-				for (int j = 0; j < files.length; j++) {
-					fileList.add(files[j]);
-				}
-			}
-		}
-		
-		return (IFile[])fileList.toArray(new IFile[0]);
 	}
 
 }
