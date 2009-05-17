@@ -235,7 +235,7 @@ public class PropertiesProperty extends PropertyPage {
 
 	protected void performDefaults() {
 		commentText.setText("#"); //$NON-NLS-1$
-		convertCharCaseCombo.setText(Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase"));
+		convertCharCaseCombo.setText(Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase")); //$NON-NLS-1$
 		notAllConvertCheckBox.setSelection(false);
 		notConvertCommentCheckBox.setEnabled(false);
 		notConvertCommentCheckBox.setSelection(false);

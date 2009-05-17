@@ -217,5 +217,24 @@
 				priority="high"
 				default-charset=""/>
 	</extension>
+	<extension
+			point="org.eclipse.ui.newWizards">
+		<wizard
+				id="jp.gr.java_conf.ussiy.app.propedit.newwizard"
+				name="%wizardName"
+				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.wizard.BasicNewPropertiesFileWizard"
+				category="org.eclipse.jdt.ui.java"
+				icon="icons/pe_32.gif"
+				project="false"/>
+	</extension>
+	<extension
+			point="org.eclipse.jdt.ui.javaEditorTextHovers">
+		<hover
+				id="jp.gr.java_conf.ussiy.app.propedit.hover"
+				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.hover.PropertiesHover"
+				label="%hoverLabel"
+				description="%hoverDescription"
+				activate="true"/>
+	</extension>
 
 </plugin>
