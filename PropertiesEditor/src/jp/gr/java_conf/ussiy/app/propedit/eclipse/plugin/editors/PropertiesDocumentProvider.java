@@ -73,7 +73,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 			try {
 				document.set(EncodeChanger.unicodeEsc2Unicode(document.get()));
 			} catch (Exception e) {
-				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 				ILog log = PropertiesEditorPlugin.getDefault().getLog();
 				log.log(status);
 				ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
@@ -109,7 +109,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 				try {
 					listener.beforeUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
 				} catch(Exception e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 					ILog log = PropertiesEditorPlugin.getDefault().getLog();
 					log.log(status);
 				}
@@ -127,7 +127,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 						uniEscStr = EncodeChanger.unicode2UnicodeEscWithoutComment(document.get(), EncodeChanger.LOWERCASE);
 					}
 				} catch (Exception e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 					ILog log = PropertiesEditorPlugin.getDefault().getLog();
 					log.log(status);
 					ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
@@ -140,7 +140,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 						uniEscStr = EncodeChanger.unicode2UnicodeEsc(document.get(), EncodeChanger.LOWERCASE);
 					}
 				} catch (Exception e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 					ILog log = PropertiesEditorPlugin.getDefault().getLog();
 					log.log(status);
 					ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
@@ -153,7 +153,7 @@ public class PropertiesDocumentProvider extends FileDocumentProvider {
 				try {
 					listener.afterUnicodeConvertAtSavingDocument(monitor, element, document, overwrite);
 				} catch(Exception e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 					ILog log = PropertiesEditorPlugin.getDefault().getLog();
 					log.log(status);
 				}

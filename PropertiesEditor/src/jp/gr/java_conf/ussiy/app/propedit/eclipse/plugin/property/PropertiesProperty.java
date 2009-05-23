@@ -147,7 +147,7 @@ public class PropertiesProperty extends PropertyPage {
 			notAllConvert = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_NOT_ALL_CONVERT));
 			notConvertComment = project.getPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_NOT_CONVERT_COMMENT));
 		} catch (CoreException e) {
-			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 			ILog log = PropertiesEditorPlugin.getDefault().getLog();
 			log.log(status);
 			ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
@@ -226,7 +226,7 @@ public class PropertiesProperty extends PropertyPage {
 			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_NOT_ALL_CONVERT), Boolean.toString(notAllConvertCheckBox.getSelection()));
 			project.setPersistentProperty(new QualifiedName(PropertiesEditorPlugin.PLUGIN_ID, P_NOT_CONVERT_COMMENT), Boolean.toString(notConvertCommentCheckBox.getSelection()));
 		} catch (CoreException e) {
-			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 			ILog log = PropertiesEditorPlugin.getDefault().getLog();
 			log.log(status);
 			ErrorDialog.openError(getShell(), Messages.getString("eclipse.propertieseditor.property.error_title"), Messages.getString("eclipse.propertieseditor.property.save.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$

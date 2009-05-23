@@ -21,7 +21,7 @@ public class PropertiesFileUtil {
 		try {
 			list = container.members();
 		} catch (CoreException e) {
-			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 			ILog log = PropertiesEditorPlugin.getDefault().getLog();
 			log.log(status);
 			return new IFile[0];
@@ -36,7 +36,7 @@ public class PropertiesFileUtil {
 					fileList.add((IFile)list[i]);
 				}
 			} else 	if (list[i] instanceof IContainer) {
-				if (excludePath.matchingFirstSegments(list[i].getFullPath()) == excludePath.segmentCount()) {
+				if (excludePath != null && excludePath.matchingFirstSegments(list[i].getFullPath()) == excludePath.segmentCount()) {
 					continue;
 				}
 				IFile[] files = findFileExt((IContainer)list[i], excludePath, extension);

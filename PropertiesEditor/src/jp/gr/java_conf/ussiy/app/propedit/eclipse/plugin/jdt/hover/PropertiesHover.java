@@ -3,37 +3,46 @@
  */
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.hover;
 
-import java.io.IOException;
-import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Properties;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
-import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.util.PropertiesFileUtil;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.util.ProjectProperties;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.JavaCore;
-import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.ui.text.java.hover.IJavaEditorTextHover;
 import org.eclipse.jface.text.BadLocationException;
+import org.eclipse.jface.text.DefaultInformationControl;
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.IInformationControl;
+import org.eclipse.jface.text.IInformationControlCreator;
 import org.eclipse.jface.text.IRegion;
+import org.eclipse.jface.text.ITextHoverExtension;
 import org.eclipse.jface.text.ITextViewer;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.editors.text.EditorsUI;
 
 /**
  *
  */
-public class PropertiesHover implements IJavaEditorTextHover {
+/**
+ * @author miyazaki
+ *
+ */
+/**
+ * @author miyazaki
+ *
+ */
+public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtension {
 	
 	private IEditorPart editorPart;
 	
@@ -110,7 +119,7 @@ public class PropertiesHover implements IJavaEditorTextHover {
 			return getPropertyValue(key);
 
 		} catch (BadLocationException e) {
-			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+			IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 			ILog log = PropertiesEditorPlugin.getDefault().getLog();
 			log.log(status);
 			return null;
@@ -128,54 +137,25 @@ public class PropertiesHover implements IJavaEditorTextHover {
 			
 			IFileEditorInput fEditorInput = (IFileEditorInput)editorInput;
 			IProject project = fEditorInput.getFile().getProject();
-			IJavaProject jProject = JavaCore.create(project);
-		
-			IPath outputPath = null;
-			try {
-				outputPath = jProject.getOutputLocation();
-			} catch (JavaModelException e) {
-				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-				ILog log = PropertiesEditorPlugin.getDefault().getLog();
-				log.log(status);
-			}
 	
-			IFile[] pFiles = PropertiesFileUtil.findFileExt(project, outputPath, "properties"); //$NON-NLS-1$
+			Map propertyMap = ProjectProperties.getInstance().getProperty(project, targetKey);
 			
-			Properties list = new Properties();
-			for (int i = 0; i < pFiles.length; i++) {
-				Properties prop = new Properties();
-				try {
-					prop.load(pFiles[i].getContents());
-				} catch (IOException e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-					ILog log = PropertiesEditorPlugin.getDefault().getLog();
-					log.log(status);
-				} catch (CoreException e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
-					ILog log = PropertiesEditorPlugin.getDefault().getLog();
-					log.log(status);
-				}
-				
-				if (prop.containsKey(targetKey)) {
-					list.put(pFiles[i].getFullPath().toPortableString(), prop.getProperty(targetKey));
-				}
-			}
-			
-			if (list.isEmpty()) {
+			if (propertyMap.isEmpty()) {
 				return null;
 			}
 			
-			Enumeration enu = list.keys();
+			Iterator ite = propertyMap.keySet().iterator();
 			StringBuffer buf = new StringBuffer();
-			buf.append("&lt;").append(Messages.getString("eclipse.propertieseditor.hover.key")).append(":").append(targetKey).append("&gt;<br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-			while (enu.hasMoreElements()) {
-				String path = (String)enu.nextElement();
-				String value = (String)list.get(path);
+			buf.append("<code>").append(Messages.getString("eclipse.propertieseditor.hover.key")).append(":").append(targetKey).append("</code><br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+			while (ite.hasNext()) {
+				IFile file = (IFile)ite.next();
+				String path = (String)file.getFullPath().toPortableString();
+				String value = (String)((Properties)propertyMap.get(file)).getProperty(targetKey);
 				value = value.replaceAll("\r\n", "<br/>"); //$NON-NLS-1$ //$NON-NLS-2$
 				value = value.replaceAll("\n", "<br/>"); //$NON-NLS-1$ //$NON-NLS-2$
 				value = value.replaceAll("\r", "<br/>"); //$NON-NLS-1$ //$NON-NLS-2$
-				buf.append("&lt;").append(Messages.getString("eclipse.propertieseditor.hover.file")).append(":").append(path).append("&gt;<br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				buf.append(value);
+				buf.append("&lt;").append(Messages.getString("eclipse.propertieseditor.hover.file")).append(":").append(path).append("&gt;<br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+				buf.append("<b><code>").append(value).append("</code></b>"); //$NON-NLS-1$ //$NON-NLS-2$
 				buf.append("<br/>"); //$NON-NLS-1$
 			}
 			return buf.toString();
@@ -189,6 +169,17 @@ public class PropertiesHover implements IJavaEditorTextHover {
 	 */
 	public IRegion getHoverRegion(ITextViewer textViewer, int offset) {
 		return null;
+	}
+
+	/**
+	 * @see org.eclipse.jface.text.ITextHoverExtension#getHoverControlCreator()
+	 */
+	public IInformationControlCreator getHoverControlCreator() {
+		return new IInformationControlCreator() {
+			public IInformationControl createInformationControl(Shell parent) {
+				return new DefaultInformationControl(parent, EditorsUI.getTooltipAffordanceString());
+			}
+		};
 	}
 
 }

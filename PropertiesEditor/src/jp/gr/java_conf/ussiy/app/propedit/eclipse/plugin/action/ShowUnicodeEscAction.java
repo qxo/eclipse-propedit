@@ -90,7 +90,7 @@ public class ShowUnicodeEscAction implements IEditorActionDelegate {
 					text.setText(EncodeChanger.unicode2UnicodeEscWithoutComment(editorText, EncodeChanger.LOWERCASE));
 				}
 			} catch (Exception e) {
-				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 				ILog log = PropertiesEditorPlugin.getDefault().getLog();
 				log.log(status);
 				ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
@@ -103,7 +103,7 @@ public class ShowUnicodeEscAction implements IEditorActionDelegate {
 					text.setText(EncodeChanger.unicode2UnicodeEsc(editorText, EncodeChanger.LOWERCASE));
 				}
 			} catch (Exception e) {
-				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 				ILog log = PropertiesEditorPlugin.getDefault().getLog();
 				log.log(status);
 				ErrorDialog.openError(null, Messages.getString("eclipse.propertieseditor.convert.error"), Messages.getString("eclipse.propertieseditor.property.get.settings.error"), status); //$NON-NLS-1$ //$NON-NLS-2$
