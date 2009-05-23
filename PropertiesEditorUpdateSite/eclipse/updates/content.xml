@@ -3,13 +3,13 @@
 <repository name='file:/D:/eclipse_project/PropertiesEditorUpdateSite/eclipse/updates/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1243091160171'/>
+    <property name='p2.timestamp' value='1243094177953'/>
   </properties>
   <references size='2'>
     <repository url='http://propedit.sourceforge.jp/eclipse/updates/' type='0' options='0'/>
     <repository url='http://propedit.sourceforge.jp/eclipse/updates/' type='1' options='0'/>
   </references>
-  <units size='156'>
+  <units size='159'>
     <unit id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.7'>
       <update id='jp.gr.java_conf.ussiy.app.propedit' range='[0.0.0,4.7.7)' severity='0'/>
       <properties size='6'>
@@ -6813,7 +6813,7 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-Name: %Bundle-Name.0&#xA;Bundle-Version: 5.3.2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Activator: jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.jface.text,org.eclipse.ui,org.eclipse.ui.editors,org.eclipse.ui.ide,org.eclipse.core.runtime;bundle-version=&quot;3.2.0&quot;,org.eclipse.ui.views,org.eclipse.ui.workbench.texteditor,org.eclipse.jdt.core;resolution:=optional,org.eclipse.core.filesystem;bundle-version=&quot;1.0.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.2.0&quot;&#xA;Export-Package: jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.detector,jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener;uses:=&quot;org.eclipse.core.runtime&quot;&#xA;Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Main-Class: jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.5,JavaSE-1.6&#xA;Bundle-Localization: plugin&#xA;
+            Bundle-Name: %Bundle-Name.0&#xA;Bundle-Version: 5.3.2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Activator: jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.jface.text,org.eclipse.ui,org.eclipse.ui.editors,org.eclipse.ui.ide,org.eclipse.core.runtime;bundle-version=&quot;3.2.0&quot;,org.eclipse.ui.views,org.eclipse.ui.workbench.texteditor,org.eclipse.jdt.core;resolution:=optional,org.eclipse.core.filesystem;bundle-version=&quot;1.0.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.2.0&quot;&#xA;Export-Package: jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.detector,jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener;uses:=&quot;org.eclipse.core.runtime&quot;&#xA;Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Main-Class: jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.5,JavaSE-1.6&#xA;Bundle-Localization: plugin
           </instruction>
         </instructions>
       </touchpointData>
@@ -6829,13 +6829,13 @@
         <property name='ja.featureName' value='プロパティエディタ'/>
         <property name='ja.copyright' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
         <property name='ja.providerName' value='ちょま吉'/>
-        <property name='ja.description' value='Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。&#xA;&#xA;このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、JBuilderや、Eclipseへの統合などの便利な機能を提供します。JBuilder、Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicode参照文字で保存されます。直感的、かつシンプルな操作で利用できます。&#xA;'/>
-        <property name='ja.license' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA&#xA;'/>
+        <property name='ja.description' value='Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。&#xA;&#xA;このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、JBuilderや、Eclipseへの統合などの便利な機能を提供します。JBuilder、Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicode参照文字で保存されます。直感的、かつシンプルな操作で利用できます。'/>
+        <property name='ja.license' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA'/>
         <property name='df_LT.featureName' value='Properties Editor'/>
         <property name='df_LT.copyright' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
         <property name='df_LT.providerName' value='Chomakichi'/>
-        <property name='df_LT.description' value='Development using the properties file is performed by Java by the setting file of J2EE application, internationalization correspondence with desktop application, etc. being sufficient. However, you have to change the multi-byte character in a file into Unicode with the native2ascii tool of attachment in J2SDK on the character platform un-depending.&#xA;&#xA;This editor can edit directly the property file written in the Unicode reference character, and saves the time and effort changed into Unicode by native2ascii. Moreover, in addition to the function of the usual editor, convenient functions, such as JBuilder and integration to Eclipse, are offered. In the integration to JBuilder and Eclipse, it is possible to open the properties file in a project directly and to edit it, and, of course, it is saved by Unicode. It can use by intuitive and simple operation.&#xA;'/>
-        <property name='df_LT.license' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.&#xA;'/>
+        <property name='df_LT.description' value='Development using the properties file is performed by Java by the setting file of J2EE application, internationalization correspondence with desktop application, etc. being sufficient. However, you have to change the multi-byte character in a file into Unicode with the native2ascii tool of attachment in J2SDK on the character platform un-depending.&#xA;&#xA;This editor can edit directly the property file written in the Unicode reference character, and saves the time and effort changed into Unicode by native2ascii. Moreover, in addition to the function of the usual editor, convenient functions, such as JBuilder and integration to Eclipse, are offered. In the integration to JBuilder and Eclipse, it is possible to open the properties file in a project directly and to edit it, and, of course, it is saved by Unicode. It can use by intuitive and simple operation.'/>
+        <property name='df_LT.license' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.'/>
       </properties>
       <provides size='5'>
         <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.feature.jar' version='5.3.2'/>
@@ -6878,13 +6878,13 @@
         <property name='ja.featureName' value='プロパティエディタ'/>
         <property name='ja.copyright' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
         <property name='ja.providerName' value='ちょま吉'/>
-        <property name='ja.description' value='Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。&#xA;&#xA;このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、JBuilderや、Eclipseへの統合などの便利な機能を提供します。JBuilder、Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicode参照文字で保存されます。直感的、かつシンプルな操作で利用できます。&#xA;'/>
-        <property name='ja.license' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA&#xA;'/>
+        <property name='ja.description' value='Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。&#xA;&#xA;このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、JBuilderや、Eclipseへの統合などの便利な機能を提供します。JBuilder、Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicode参照文字で保存されます。直感的、かつシンプルな操作で利用できます。'/>
+        <property name='ja.license' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA'/>
         <property name='df_LT.featureName' value='Properties Editor'/>
         <property name='df_LT.copyright' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
         <property name='df_LT.providerName' value='Chomakichi'/>
-        <property name='df_LT.description' value='Development using the properties file is performed by Java by the setting file of J2EE application, internationalization correspondence with desktop application, etc. being sufficient. However, you have to change the multi-byte character in a file into Unicode with the native2ascii tool of attachment in J2SDK on the character platform un-depending.&#xA;&#xA;This editor can edit directly the property file written in the Unicode reference character, and saves the time and effort changed into Unicode by native2ascii. Moreover, in addition to the function of the usual editor, convenient functions, such as JBuilder and integration to Eclipse, are offered. In the integration to JBuilder and Eclipse, it is possible to open the properties file in a project directly and to edit it, and, of course, it is saved by Unicode. It can use by intuitive and simple operation.&#xA;'/>
-        <property name='df_LT.license' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.&#xA;'/>
+        <property name='df_LT.description' value='Development using the properties file is performed by Java by the setting file of J2EE application, internationalization correspondence with desktop application, etc. being sufficient. However, you have to change the multi-byte character in a file into Unicode with the native2ascii tool of attachment in J2SDK on the character platform un-depending.&#xA;&#xA;This editor can edit directly the property file written in the Unicode reference character, and saves the time and effort changed into Unicode by native2ascii. Moreover, in addition to the function of the usual editor, convenient functions, such as JBuilder and integration to Eclipse, are offered. In the integration to JBuilder and Eclipse, it is possible to open the properties file in a project directly and to edit it, and, of course, it is saved by Unicode. It can use by intuitive and simple operation.'/>
+        <property name='df_LT.license' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.'/>
       </properties>
       <provides size='3'>
         <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.feature.group' version='5.3.2'/>
@@ -6904,6 +6904,151 @@
         <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.filesystem' range='1.0.0'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit' range='[5.3.2,5.3.2]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.feature.jar' range='[5.3.2,5.3.2]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'>
+      <update id='jp.gr.java_conf.ussiy.app.propedit' range='[0.0.0,5.3.3)' severity='0'/>
+      <properties size='6'>
+        <property name='ja.Bundle-Vendor.0' value='ちょま吉'/>
+        <property name='ja.Bundle-Name.0' value='プロパティエディタ'/>
+        <property name='df_LT.Bundle-Vendor.0' value='Chomakichi'/>
+        <property name='df_LT.Bundle-Name.0' value='PropertiesEditor'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'/>
+        <provided namespace='osgi.bundle' name='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'/>
+        <provided namespace='java.package' name='jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.detector' version='0.0.0'/>
+        <provided namespace='java.package' name='jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='ja' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='3.2.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='0.0.0' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='3.2.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Name: %Bundle-Name.0&#xA;Bundle-Version: 5.3.3&#xA;Eclipse-LazyStart: true&#xA;Bundle-Activator: jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.jface.text,org.eclipse.ui,org.eclipse.ui.editors,org.eclipse.ui.ide,org.eclipse.core.runtime;bundle-version=&quot;3.2.0&quot;,org.eclipse.ui.views,org.eclipse.ui.workbench.texteditor,org.eclipse.jdt.core;resolution:=optional,org.eclipse.core.filesystem;bundle-version=&quot;1.0.0&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.2.0&quot;&#xA;Export-Package: jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.editors.detector,jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.listener;uses:=&quot;org.eclipse.core.runtime&quot;&#xA;Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit;singleton:=true&#xA;Manifest-Version: 1.0&#xA;Main-Class: jp.gr.java_conf.ussiy.app.propedit.PropertiesEditor&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.5,JavaSE-1.6&#xA;Bundle-Localization: plugin&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit.feature.jar' version='5.3.3'>
+      <update id='jp.gr.java_conf.ussiy.app.propedit.feature.jar' range='[0.0.0,5.3.3)' severity='0'/>
+      <properties size='15'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='%descriptionUrl'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.update.feature.plugin' value='jp.gr.java_conf.ussiy.app.propedit'/>
+        <property name='ja.featureName' value='プロパティエディタ'/>
+        <property name='ja.copyright' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
+        <property name='ja.providerName' value='ちょま吉'/>
+        <property name='ja.description' value='Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。&#xA;&#xA;このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、JBuilderや、Eclipseへの統合などの便利な機能を提供します。JBuilder、Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicode参照文字で保存されます。直感的、かつシンプルな操作で利用できます。&#xA;'/>
+        <property name='ja.license' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA&#xA;'/>
+        <property name='df_LT.featureName' value='Properties Editor'/>
+        <property name='df_LT.copyright' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
+        <property name='df_LT.providerName' value='Chomakichi'/>
+        <property name='df_LT.description' value='Development using the properties file is performed by Java by the setting file of J2EE application, internationalization correspondence with desktop application, etc. being sufficient. However, you have to change the multi-byte character in a file into Unicode with the native2ascii tool of attachment in J2SDK on the character platform un-depending.&#xA;&#xA;This editor can edit directly the property file written in the Unicode reference character, and saves the time and effort changed into Unicode by native2ascii. Moreover, in addition to the function of the usual editor, convenient functions, such as JBuilder and integration to Eclipse, are offered. In the integration to JBuilder and Eclipse, it is possible to open the properties file in a project directly and to edit it, and, of course, it is saved by Unicode. It can use by intuitive and simple operation.&#xA;'/>
+        <property name='df_LT.license' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.&#xA;'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.feature.jar' version='5.3.3'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='ja' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit.feature.group' version='5.3.3' singleton='false'>
+      <update id='jp.gr.java_conf.ussiy.app.propedit.feature.group' range='[0.0.0,5.3.3)' severity='0'/>
+      <properties size='15'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='%descriptionUrl'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='ja.featureName' value='プロパティエディタ'/>
+        <property name='ja.copyright' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
+        <property name='ja.providerName' value='ちょま吉'/>
+        <property name='ja.description' value='Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。&#xA;&#xA;このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、JBuilderや、Eclipseへの統合などの便利な機能を提供します。JBuilder、Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicode参照文字で保存されます。直感的、かつシンプルな操作で利用できます。&#xA;'/>
+        <property name='ja.license' value='プロパティエディタ - propertiesファイル編集用エディタ&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA&#xA;'/>
+        <property name='df_LT.featureName' value='Properties Editor'/>
+        <property name='df_LT.copyright' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki'/>
+        <property name='df_LT.providerName' value='Chomakichi'/>
+        <property name='df_LT.description' value='Development using the properties file is performed by Java by the setting file of J2EE application, internationalization correspondence with desktop application, etc. being sufficient. However, you have to change the multi-byte character in a file into Unicode with the native2ascii tool of attachment in J2SDK on the character platform un-depending.&#xA;&#xA;This editor can edit directly the property file written in the Unicode reference character, and saves the time and effort changed into Unicode by native2ascii. Moreover, in addition to the function of the usual editor, convenient functions, such as JBuilder and integration to Eclipse, are offered. In the integration to JBuilder and Eclipse, it is possible to open the properties file in a project directly and to edit it, and, of course, it is saved by Unicode. It can use by intuitive and simple operation.&#xA;'/>
+        <property name='df_LT.license' value='PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.&#xA;'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.feature.group' version='5.3.3'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='ja' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='12'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='3.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.editors' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='3.2.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.views' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui.workbench.texteditor' range='0.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.ui' range='3.2.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.filesystem' range='1.0.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit' range='[5.3.3,5.3.3]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.feature.jar' range='[5.3.3,5.3.3]'>
           <filter>
             (org.eclipse.update.install.features=true)
           </filter>
