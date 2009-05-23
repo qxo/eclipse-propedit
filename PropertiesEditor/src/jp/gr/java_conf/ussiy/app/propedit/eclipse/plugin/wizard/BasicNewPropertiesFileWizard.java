@@ -6,7 +6,6 @@ package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.wizard;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 
 import org.eclipse.jface.wizard.IWizardPage;
-import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.wizards.newresource.BasicNewFileResourceWizard;
 
 /**
@@ -20,7 +19,6 @@ public class BasicNewPropertiesFileWizard extends BasicNewFileResourceWizard {
 	public void addPage(IWizardPage page) {
 		page.setTitle(Messages.getString("eclipse.propertieseditor.BasicNewPropertiesFileWizard.0")); //$NON-NLS-1$
 		page.setDescription(Messages.getString("eclipse.propertieseditor.BasicNewPropertiesFileWizard.1")); //$NON-NLS-1$
-		((WizardNewFileCreationPage)page).setFileExtension("properties"); //$NON-NLS-1$
 		super.addPage(page);
 	}
 

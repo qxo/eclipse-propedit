@@ -119,7 +119,7 @@ public class ProjectProperties {
 	}
 	
 	private void log(String msg) {
-		IStatus status = new Status(IStatus.INFO, PropertiesEditorPlugin.PLUGIN_ID, msg);
+		IStatus status = new Status(IStatus.INFO, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, msg, null);
 		ILog log = PropertiesEditorPlugin.getDefault().getLog();
 		log.log(status);
 	}
