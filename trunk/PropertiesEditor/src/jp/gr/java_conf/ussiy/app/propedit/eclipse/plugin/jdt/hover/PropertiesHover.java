@@ -29,7 +29,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.editors.text.EditorsUI;
 
 /**
  *
@@ -146,17 +145,12 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 			
 			Iterator ite = propertyMap.keySet().iterator();
 			StringBuffer buf = new StringBuffer();
-			buf.append("<code>").append(Messages.getString("eclipse.propertieseditor.hover.key")).append(":").append(targetKey).append("</code><br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 			while (ite.hasNext()) {
 				IFile file = (IFile)ite.next();
 				String path = (String)file.getFullPath().toPortableString();
 				String value = (String)((Properties)propertyMap.get(file)).getProperty(targetKey);
-				value = value.replaceAll("\r\n", "<br/>"); //$NON-NLS-1$ //$NON-NLS-2$
-				value = value.replaceAll("\n", "<br/>"); //$NON-NLS-1$ //$NON-NLS-2$
-				value = value.replaceAll("\r", "<br/>"); //$NON-NLS-1$ //$NON-NLS-2$
-				buf.append("&lt;").append(Messages.getString("eclipse.propertieseditor.hover.file")).append(":").append(path).append("&gt;<br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
-				buf.append("<b><code>").append(value).append("</code></b>"); //$NON-NLS-1$ //$NON-NLS-2$
-				buf.append("<br/>"); //$NON-NLS-1$
+				buf.append("< ").append(Messages.getString("eclipse.propertieseditor.hover.file")).append(path).append(" >\n"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				buf.append(value).append("\n"); //$NON-NLS-1$
 			}
 			return buf.toString();
 		} else {
@@ -177,7 +171,7 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 	public IInformationControlCreator getHoverControlCreator() {
 		return new IInformationControlCreator() {
 			public IInformationControl createInformationControl(Shell parent) {
-				return new DefaultInformationControl(parent, EditorsUI.getTooltipAffordanceString());
+				return new DefaultInformationControl(parent);
 			}
 		};
 	}
