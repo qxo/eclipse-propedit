@@ -106,6 +106,7 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 					break;
 				} else {
 					endIdx = -1;
+					break;
 				}
 			}
 			
