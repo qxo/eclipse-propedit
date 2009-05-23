@@ -1,0 +1,288 @@
+<HTML>
+	<HEAD>
+		<META http-equiv="Content-Type" content="text/html; charset=EUC-JP" />
+		<META name="keywords" content="java,native2ascii,property,multibyte,editor,eclipse,plugin,multibyte,コード変換,アプリケーション,ユニコード,unicode,プロパティ,properties,エディタ,設定,ファイル">
+		<META name="description" content="native2asciiによるユニコード変換の煩わしさから解放されます。">
+		<META http-equiv="Set-Cookie" content="CookieStatus=cookie_status:1; path=/cgi-bin/acc;">
+
+		<TITLE>プロパティエディタ</TITLE>
+
+		<SCRIPT type="text/javascript">
+			var javawsInstalled = false;
+			var isIE = false;
+			var isICE = navigator.userAgent.indexOf("ICEBrowser") >= 0;
+			if (navigator.mimeTypes && navigator.mimeTypes.length)
+				javawsInstalled = navigator.mimeTypes['application/x-java-jnlp-file'];
+			else
+				isIE = true;
+			function insertLink(url, name_before, name, name_after) {
+				if (javawsInstalled) {
+					document.write(name_before + "<A href=\"" + url + "\">"  + name + "</A>" + name_after);
+				} else {
+					if (isICE) {
+						document.write("JBuilder の [Web 表示] は Web Start をサポートしていません(Web Start のプラグインがありません)。<BR> ");
+						document.write("使用可能なブラウザについては，次の Sun のサイトを参照してください。<BR>");
+					} else {
+						document.write("Java Web Start をインストールする必要があります。<BR>");
+					}
+					document.write(" -- 詳細は ");
+					document.write("<A href=\"http://java.sun.com/products/javawebstart/\">" );
+					document.write("Java Web Start ページ");
+					document.write("</A>をご覧下さい。");
+				}
+			}
+		</SCRIPT>
+		<SCRIPT type="text/vbscript">
+			on error resume next
+			If isIE Then
+				If Not(IsObject(CreateObject("JavaWebStart.IsInstalled"))) Then
+					javawsInstalled = false
+				Else
+					javawsInstalled = true
+				End If
+			End If
+		</SCRIPT>
+	</HEAD>
+
+	<BODY bgcolor="#F3F3F3">
+		<SCRIPT type="text/javascript">
+		<!--
+			var link = document.referrer;
+			if (link != "") link = escape(link);
+			document.write('<IMG src="http://propedit.sourceforge.jp/cgi-bin/acc/getlog.cgi?file=/index.html&ref=' + link + '&screen=');
+			document.write(screen.width + '*' + screen.height + '&color=' + screen.colorDepth);
+			document.write('" height="1" width="1" border="0">');
+		// -->
+		</SCRIPT>
+		<NOSCRIPT>
+			<IMG src="http://propedit.sourceforge.jp/cgi-bin/acc/getlog.cgi?file=/index.html" width=1 height=1 border=0>
+		</NOSCRIPT>
+		<BR>
+		<BR>
+		<CENTER>
+			<TABLE border=0 width=95%>
+				<TR>
+					<TD>
+						<TABLE border=0 width=100%>
+							<TR>
+								<TD>
+									<TABLE border=0 width=100%>
+										<TR>
+											<TD>
+												Japanese/<A href="./index_en.html">English</A>
+											</TD>
+											<TD rowspan=2 align="right">
+												<TABLE border=0>
+													<TR>
+														<TD valign="top">
+															<A href="http://sourceforge.jp/" target="_blank">
+																<IMG src="http://sourceforge.jp/sflogo.php?group_id=1032" width="96" height="31" border="0" alt="SourceForge.jp">
+															</A>
+														</TD>
+														<TD valign="top">
+															<A href="http://www.java.net" target="_blank">
+																<IMG src="./java_net.gif" border="0" width="90" height="25">
+															</A>
+														</TD>
+													</TR>
+													<TR>
+														<TD valign="top">
+															<A href="http://www.jfind.com/vote.php3?id=2617 " target="_blank">
+																<IMG src="jfind.gif" border="0" width="100" height="43">
+															</A>
+														</TD>
+														<TD valign="top">
+															<A href="http://www.jars.com/" target="_blank">
+																<IMG src="java_registered.gif" border="0">
+															</A>
+														</TD>
+													</TR>
+												</TABLE>
+											</TD>
+										</TR>
+										<TR>
+											<TD align="center" valign="center">
+												<FONT size=6 color="#290EFF">プロパティエディタ</FONT>
+											</TD>
+										</TR>
+									</TABLE>
+									<BR>
+									<P></P>
+								</TD>
+							</TR>
+							<TR>
+								<TD>
+									<DIV style="line-height:1.5em">
+										<FONT size=4>
+											<B>native2asciiによるユニコード変換の煩わしさから解放されます。</B>
+										</FONT>
+										<P></P>
+										Javaでpropertiesファイルを用いた開発は、J2EEアプリケーションの設定ファイルや、デスクトップアプリケーションでの国際化対応等でよく行われます。ところがプラットホーム非依存という性質上、ファイル内のマルチバイト文字をJ2SDKに付属のnative2asciiツールでUnicodeに変換しなければなりません。<BR>
+										このエディタはUnicode参照文字で書かれたプロパティファイルを直接編集することができ、native2asciiでUnicodeに変換する手間を省きます。また、通常のエディタの機能に加え、Eclipseへの統合などの便利な機能を提供します。Eclipseへの統合では、プロジェクト内のpropertiesファイルを直接開いて編集することが可能で、もちろんUnicodeで保存されます。直感的、かつシンプルな操作で利用できます。<BR>
+										詳しくは、下記のページをご覧下さい。<BR>
+										<A href="http://sourceforge.jp/projects/propedit/">http://sourceforge.jp/projects/propedit/</A>
+										<BR>
+									</DIV>
+									<BR>
+									<TABLE border=1 cellpadding="5" cellspacing="0">
+										<TR>
+											<TD>
+												<DIV style="line-height:1.5em">
+													<SCRIPT type="text/javascript">
+													<!--
+														insertLink("http://propedit.sourceforge.jp/propertieseditor.jnlp","JavaWebStartのプロパティエディタを起動する為には、","こちら","をクリックしてください。<BR>");
+													// -->
+													</SCRIPT>
+													<NOSCRIPT>
+														JavaWebStartのプロパティエディタを起動する為には、<a href="http://propedit.sourceforge.jp/propertieseditor.jnlp">こちら</a>をクリックしてください。<br>
+													</NOSCRIPT>
+												</DIV>
+											</TD>
+										</TR>
+										<TR>
+											<TD>
+												<DIV style="line-height:1.5em">
+													・Eclipse用プラグイン、アプリケーション用JARファイルは<A href="http://sourceforge.jp/projects/propedit/">こちら</A>のページからダウンロードできます。<BR>
+												</DIV>
+												<P>
+													<FONT size=2>
+														上記ダウンロードファイルに含まれるjarファイルは全て同じ物です。<BR>
+														例えば、Eclipse用プラグインのjarファイルを実行すれば、アプリケーションが起動します。
+													</FONT>
+												</P>
+											</TD>
+										</TR>
+									</TABLE>
+									<SMALL>
+										（このJARファイルや、JavaWebStartを利用するにはJ2RE、もしくはJ2SDKの1.4以降が必要になります。J2RE、J2SDKは<A href="http://java.sun.com/" target="_blank">ここ</A>からダウンロードできます。）
+									</SMALL>
+									<BR><BR>
+									<H3>Eclipseへの統合について</H3>
+									<TABLE border=1 cellpadding="5" cellspacing="0">
+										<TR bgcolor="#C0C0C0">
+											<TH>
+												IDE
+											</TH>
+											<TH colspan=2>
+												インストール方法
+											</TH>
+										</TR>
+										<TR>
+											<TD rowspan=2>
+												<B>Eclipse</B>
+											</TD>
+											<TD colspan=2>
+												配布しているzipファイルを解凍してできる「jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin_x.x.x」ディレクトリをEclipseのインストールディレクトリにあるpluginsフォルダにコピーして、Eclipseを起動してください。（Eclipseを既に起動している場合は、再起動してください。）<BR><BR>
+												Eclipseの設定画面でフォントやキーの重複チェック機能を設定できます。このフォント変更機能は、他のエディタとは異なるフォントを利用できることで、例えば、日本語圏の人がjavaソースは日本語で編集し、propertiesファイルは韓国語で編集することが可能になります。
+											</TD>
+										</TR>
+										<TR>
+											<TD colspan=2>
+												<B>
+													<FONT color=red>
+														Eclipse用の更新サイトを作成しました。これによって、Eclipseの更新マネージャによるインストール、アップデートが可能になります。
+													</FONT>
+													<BR>- <A href="howto_eclipseplugin_install.html">インストール方法</A> -
+												</B>
+												<BR>
+												URL ： http://propedit.sourceforge.jp/eclipse/updates/<BR>
+											</TD>
+										</TR>
+									</TABLE>
+									<B>スクリーンショット</B>
+									<TABLE border=0>
+										<TR>
+											<TD>
+												<A href="http://propedit.sourceforge.jp/screenshot/application/screenshot_standalone.html">
+													スタンドアローンで利用した時のスクリーンショット
+												</A>
+												<BR>
+												<A href="http://propedit.sourceforge.jp/screenshot/eclipse/screenshot_eclipse_ja.html">
+													Eclipseで利用した時のスクリーンショット
+												</A>
+												<BR>
+											</TD>
+										</TR>
+									</TABLE>
+									<P>
+										<DIV style="line-height:1.2em">
+											<H3>−　主な機能　−</H3>
+											<UL type=square>
+												<LI>Unicode参照文字形式での保存が可能
+												<LI>EUC,Shift-JIS,JIS,UTF-8等のテキストを読み込むことが可能
+												<LI>印刷機能
+												<LI>カット＆ペースト機能等
+												<LI>文字列検索機能
+												<LI>文字列置換機能
+												<LI>Undo、Redo機能
+												<LI>行番号表示機能
+												<LI>フォントの選択機能
+												<LI>バックグラウンドの色を指定する機能
+												<LI>LookAndFeel変更機能
+												<LI>Eclipseとの統合機能（Plugin)
+											</UL>
+										</DIV>
+									</P>
+									<P></P>
+									<H3>ライセンスについて</H3>
+									GNU General Public License (GPL)の下に配布させて頂いております。<BR>
+									<P>
+										<H3>Rate This Plugin</H3>
+										<TABLE border=0 width=600>
+											<TR align="center">
+												<TD>
+													<A href="http://www.eclipseplugincentral.com/Web_Links+index-req-ratelink-lid-186-ttitle-Properties_Editor.html" target="_blank">
+														<IMG src="epc-logo.gif" border="0">
+													</A>
+												</TD>
+												<TD>
+													<A href="http://www.eclipse-plugins.info/eclipse/plugin_details.jsp?id=656" target="_blank">
+														<IMG src="eclipse-plugin-logo.gif" border="0">
+													</A>
+												</TD>
+
+											</TR>
+										</TABLE>
+									</P>
+									<P></P>
+									<CENTER>
+										<FONT size=2>
+											ご意見、ご質問、ご要望は<A href="mailto:chomakichi@users.sourceforge.jp">こちら</A>まで。
+										</FONT>
+									</CENTER>
+								</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+				<TR>
+					<TD>
+						<TABLE>
+							<TR><TD>
+								<div align="center" style="font-size:10pt">
+									<script type="text/javascript">
+									<!--
+									geobp_id="218b5b25e6d0f571a2d989c49381d905e5a20575";
+									//-->
+									</script>
+									<script type="text/javascript" src="http://partsall.geotg.jp/geobp.js"></script>
+									<noscript>JavaScriptをONにしてください。</noscript>
+									<br /><a href="http://www.geotargeting.jp/" target="_blank">ジオターゲティング</a>
+								</div>
+							</TD><TD>
+								<div align="center">
+								<script type="text/javascript" src="http://widgets.amung.us/map.js"></script><script type="text/javascript">WAU_map('miyazaki', 342, 171, 'heatmap', 'star-blue')</script>
+								</div>
+							</TD><TD>
+								<div align="center">
+								<script type="text/javascript" src="http://metric.inetcore.com/46meter/46meter.js?s=propedit.sourceforge.jp"></script>
+								</div>
+							</TD></TR>
+						</TABLE>
+					</TD>
+				</TR>
+			</TABLE>
+		</CENTER>
+
+	</BODY>
+</HTML>
