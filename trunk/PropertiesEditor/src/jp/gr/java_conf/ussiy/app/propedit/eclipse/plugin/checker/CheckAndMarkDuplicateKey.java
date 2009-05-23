@@ -15,6 +15,7 @@ import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.IFileEditorInput;
@@ -32,8 +33,10 @@ public class CheckAndMarkDuplicateKey {
 			throw e;
 		} catch (Exception e) {
 			e.printStackTrace();
-			IStatus s = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
-			throw new CoreException(s);
+			IStatus status = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
+			ILog log = PropertiesEditorPlugin.getDefault().getLog();
+			log.log(status);
+			throw new CoreException(status);
 		}
 	}
 
@@ -164,8 +167,10 @@ public class CheckAndMarkDuplicateKey {
 				}
 			}
 		} catch (IOException e) {
-			IStatus s = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
-			throw new CoreException(s);
+			IStatus status = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
+			ILog log = PropertiesEditorPlugin.getDefault().getLog();
+			log.log(status);
+			throw new CoreException(status);
 		} finally {
 			try {
 				if (reader != null) {

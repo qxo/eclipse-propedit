@@ -97,8 +97,6 @@ public class PropertiesEditor extends TextEditor {
 
 		//turn projection mode on
 		viewer.doOperation(ProjectionViewer.TOGGLE);
-		
-		getSite().setSelectionProvider(viewer);
 
 		annotationModel = viewer
 				.getProjectionAnnotationModel();

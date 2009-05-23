@@ -4,10 +4,13 @@ import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.PlatformUI;
@@ -38,8 +41,10 @@ public class CheckAndMarkResourceVisitor implements IResourceVisitor {
 					out.write(tmp, 0, readCnt);
 				}
 			} catch (IOException e) {
-				IStatus s = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
-				throw new CoreException(s);
+				IStatus status = new Status(IStatus.ERROR, PlatformUI.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
+				ILog log = PropertiesEditorPlugin.getDefault().getLog();
+				log.log(status);
+				throw new CoreException(status);
 			}
 			camd.checkAndMarkDuplicateKeyInString(out.toString(), resource);
 		}

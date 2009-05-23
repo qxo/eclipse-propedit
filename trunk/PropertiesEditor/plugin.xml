@@ -25,8 +25,7 @@
 		<page
 				name="%propertiesEditorPreferencePageName"
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference"
-				id="jp.gr.java_conf.ussiy.app.propedit.preference.PropertiesPreference"
-				objectClass="org.eclipse.core.resources.IProject"/>
+				id="jp.gr.java_conf.ussiy.app.propedit.preference.PropertiesPreference"/>
 		<page
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesEditorPreference"
 				category="jp.gr.java_conf.ussiy.app.propedit.preference.PropertiesPreference"
@@ -235,6 +234,10 @@
 				label="%hoverLabel"
 				description="%hoverDescription"
 				activate="true"/>
+	</extension>
+	<extension
+			point="org.eclipse.ui.startup">
+		<startup class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.startup.Startup"/>
 	</extension>
 
 </plugin>

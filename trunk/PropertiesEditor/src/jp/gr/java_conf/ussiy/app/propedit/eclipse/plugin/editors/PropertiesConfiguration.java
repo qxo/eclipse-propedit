@@ -141,7 +141,7 @@ public class PropertiesConfiguration extends SourceViewerConfiguration {
 						results.add(detector);
 					}
 				} catch(CoreException e) {
-					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, 0, e.getMessage(), e);
+					IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 					ILog log = PropertiesEditorPlugin.getDefault().getLog();
 					log.log(status);
 				}
