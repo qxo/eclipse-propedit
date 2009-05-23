@@ -201,7 +201,7 @@
 			point="org.eclipse.jdt.ui.javaCompletionProposalComputer">
 		<javaCompletionProposalComputer
 				activate="true"
-				caategoryId="org.eclipse.jdt.ui.defaultProposalCategory"
+				categoryId="org.eclipse.jdt.ui.defaultProposalCategory"
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.proposal.PropertiesCompletionProposalComputer">
 			<partition type="__java_string"/>
 		</javaCompletionProposalComputer>
