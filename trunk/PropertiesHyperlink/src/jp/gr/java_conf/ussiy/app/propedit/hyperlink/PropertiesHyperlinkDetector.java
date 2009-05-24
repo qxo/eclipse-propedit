@@ -107,7 +107,7 @@ public class PropertiesHyperlinkDetector implements IHyperlinkDetector {
 
 		} catch (BadLocationException e) {
 			IStatus status = new Status(IStatus.ERROR,
-					Activator.PLUGIN_ID, 0, e.getMessage(), e);
+					Activator.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 			ILog log = Activator.getDefault().getLog();
 			log.log(status);
 			ErrorDialog
