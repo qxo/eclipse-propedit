@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit.hyperlink"
       label="%featureName"
-      version="1.0.1"
+      version="1.0.2"
       provider-name="%providerName"
       plugin="jp.gr.java_conf.ussiy.app.propedit.hyperlink">
 
@@ -32,6 +32,7 @@
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.ui.editors"/>
       <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
    </requires>
 
    <plugin
