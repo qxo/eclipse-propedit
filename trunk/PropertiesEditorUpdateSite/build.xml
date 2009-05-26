@@ -37,6 +37,20 @@
 			<fileset dir="./eclipse/updates/features" includes="jp.gr.java_conf.ussiy.app.propedit.hyperlink_${version}.jar"/>
 		</signjar>
 	</target>
+	
+	<target name="signNlsPluginJar" description="NLSフラグメントのjarファイルを署名を施します。">
+		<echo message="enter keystore password."/>
+		<input addproperty="storepass"/>
+		<echo message="enter plugin version."/>
+		<input addproperty="version"/>
+		
+		<signjar keystore="${keystore}" alias="chomakichi" storepass="${storepass}">
+			<fileset dir="./eclipse/updates/plugins" includes="jp.gr.java_conf.ussiy.app.propedit.nl_${version}.jar"/>
+		</signjar>
+		<signjar keystore="${keystore}" alias="chomakichi" storepass="${storepass}">
+			<fileset dir="./eclipse/updates/features" includes="jp.gr.java_conf.ussiy.app.propedit.nl_${version}.jar"/>
+		</signjar>
+	</target>
 
 </project>
 

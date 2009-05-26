@@ -3,30 +3,30 @@
 <repository name='file:/D:/eclipse_project/PropertiesEditorUpdateSite/eclipse/updates/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1243166762736'/>
+    <property name='p2.timestamp' value='1243353051825'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='114'>
+  <artifacts size='118'>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.6.0'>
       <properties size='2'>
         <property name='artifact.size' value='11994'/>
         <property name='download.size' value='11994'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.1'>
-      <properties size='2'>
-        <property name='artifact.size' value='14537'/>
-        <property name='download.size' value='14537'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.0.0'>
       <properties size='2'>
         <property name='artifact.size' value='13919'/>
         <property name='download.size' value='13919'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.1'>
+      <properties size='2'>
+        <property name='artifact.size' value='14537'/>
+        <property name='download.size' value='14537'/>
       </properties>
     </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='5.2.2'>
@@ -55,6 +55,12 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit.hyperlink' version='1.0.2'>
+      <properties size='2'>
+        <property name='artifact.size' value='12547'/>
+        <property name='download.size' value='12547'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.2.1'>
       <properties size='3'>
         <property name='artifact.size' value='122683'/>
@@ -62,16 +68,16 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.3.1'>
-      <properties size='2'>
-        <property name='artifact.size' value='11992'/>
-        <property name='download.size' value='11992'/>
-      </properties>
-    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.4'>
       <properties size='2'>
         <property name='artifact.size' value='11993'/>
         <property name='download.size' value='11993'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.3.1'>
+      <properties size='2'>
+        <property name='artifact.size' value='11992'/>
+        <property name='download.size' value='11992'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.0'>
@@ -97,6 +103,13 @@
       <properties size='2'>
         <property name='artifact.size' value='11993'/>
         <property name='download.size' value='11993'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit.hyperlink' version='1.0.2'>
+      <properties size='3'>
+        <property name='artifact.size' value='16999'/>
+        <property name='download.size' value='16999'/>
+        <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.2.1'>
@@ -166,17 +179,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.3.2'>
-      <properties size='2'>
-        <property name='artifact.size' value='11993'/>
-        <property name='download.size' value='11993'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.0.0'>
       <properties size='3'>
         <property name='artifact.size' value='120658'/>
         <property name='download.size' value='120658'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.3.2'>
+      <properties size='2'>
+        <property name='artifact.size' value='11993'/>
+        <property name='download.size' value='11993'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.9'>
@@ -270,6 +283,13 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'>
+      <properties size='3'>
+        <property name='artifact.size' value='15520'/>
+        <property name='download.size' value='15520'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.6'>
       <properties size='2'>
         <property name='artifact.size' value='12060'/>
@@ -282,17 +302,17 @@
         <property name='download.size' value='12057'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.2'>
-      <properties size='3'>
-        <property name='artifact.size' value='218764'/>
-        <property name='download.size' value='218764'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='3.7.0'>
       <properties size='3'>
         <property name='artifact.size' value='120290'/>
         <property name='download.size' value='120290'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.2'>
+      <properties size='3'>
+        <property name='artifact.size' value='218764'/>
+        <property name='download.size' value='218764'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -316,17 +336,17 @@
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.4.0'>
-      <properties size='3'>
-        <property name='artifact.size' value='118735'/>
-        <property name='download.size' value='118735'/>
-        <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.2.0'>
       <properties size='3'>
         <property name='artifact.size' value='122686'/>
         <property name='download.size' value='122686'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='4.4.0'>
+      <properties size='3'>
+        <property name='artifact.size' value='118735'/>
+        <property name='download.size' value='118735'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -360,6 +380,12 @@
       <properties size='2'>
         <property name='artifact.size' value='12119'/>
         <property name='download.size' value='12119'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'>
+      <properties size='2'>
+        <property name='artifact.size' value='8687'/>
+        <property name='download.size' value='8687'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.1.0'>
@@ -656,17 +682,17 @@
         <property name='download.size' value='14512'/>
       </properties>
     </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.3.5'>
+      <properties size='2'>
+        <property name='artifact.size' value='11993'/>
+        <property name='download.size' value='11993'/>
+      </properties>
+    </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.3'>
       <properties size='3'>
         <property name='artifact.size' value='226557'/>
         <property name='download.size' value='226557'/>
         <property name='download.contentType' value='application/zip'/>
-      </properties>
-    </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.3.5'>
-      <properties size='2'>
-        <property name='artifact.size' value='11993'/>
-        <property name='download.size' value='11993'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='5.3.2'>
@@ -721,17 +747,17 @@
         <property name='download.size' value='12120'/>
       </properties>
     </artifact>
-    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.8'>
-      <properties size='2'>
-        <property name='artifact.size' value='12057'/>
-        <property name='download.size' value='12057'/>
-      </properties>
-    </artifact>
     <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit.hyperlink' version='1.0.0'>
       <properties size='3'>
         <property name='artifact.size' value='16978'/>
         <property name='download.size' value='16978'/>
         <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.8'>
+      <properties size='2'>
+        <property name='artifact.size' value='12057'/>
+        <property name='download.size' value='12057'/>
       </properties>
     </artifact>
     <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propsearch' version='1.0.1'>

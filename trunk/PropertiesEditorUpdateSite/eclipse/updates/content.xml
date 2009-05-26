@@ -3,13 +3,13 @@
 <repository name='file:/D:/eclipse_project/PropertiesEditorUpdateSite/eclipse/updates/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1243166762767'/>
+    <property name='p2.timestamp' value='1243353051841'/>
   </properties>
   <references size='2'>
     <repository url='http://propedit.sourceforge.jp/eclipse/updates/' type='0' options='0'/>
     <repository url='http://propedit.sourceforge.jp/eclipse/updates/' type='1' options='0'/>
   </references>
-  <units size='162'>
+  <units size='166'>
     <unit id='jp.gr.java_conf.ussiy.app.propedit' version='4.7.7'>
       <update id='jp.gr.java_conf.ussiy.app.propedit' range='[0.0.0,4.7.7)' severity='0'/>
       <properties size='6'>
@@ -7076,12 +7076,12 @@
         <property name='ja.copyright' value='プロパティエディタ用ハイパーリンクプラグイン&#xA;Copyright (C) 2009-  Sou Miyazaki'/>
         <property name='ja.providerName' value='ちょま吉'/>
         <property name='ja.description' value='プロパティエディタにハイパーリンク機能を追加するプラグインです。&#xA;これによってプロパティ使用箇所を簡単に検索できます。'/>
-        <property name='ja.license' value='プロパティエディタ用ハイパーリンクプラグイン&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA&#xA;'/>
+        <property name='ja.license' value='プロパティエディタ用ハイパーリンクプラグイン&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA'/>
         <property name='df_LT.featureName' value='PropertiesHyperlink'/>
         <property name='df_LT.copyright' value='HyperlinkPlugin for PropertiesEditor&#xA;Copyright (C) 2009-  Sou Miyazaki'/>
         <property name='df_LT.providerName' value='Chomakichi'/>
         <property name='df_LT.description' value='It is a plug-in that adds the hyperlink function to the property editor.&#xA;As a result, the property use part can be easily retrieved.'/>
-        <property name='df_LT.license' value='HyperlinkPlugin for PropertiesEditor&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.&#xA;'/>
+        <property name='df_LT.license' value='HyperlinkPlugin for PropertiesEditor&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.'/>
       </properties>
       <provides size='5'>
         <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.hyperlink.feature.jar' version='1.0.2'/>
@@ -7125,12 +7125,12 @@
         <property name='ja.copyright' value='プロパティエディタ用ハイパーリンクプラグイン&#xA;Copyright (C) 2009-  Sou Miyazaki'/>
         <property name='ja.providerName' value='ちょま吉'/>
         <property name='ja.description' value='プロパティエディタにハイパーリンク機能を追加するプラグインです。&#xA;これによってプロパティ使用箇所を簡単に検索できます。'/>
-        <property name='ja.license' value='プロパティエディタ用ハイパーリンクプラグイン&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA&#xA;'/>
+        <property name='ja.license' value='プロパティエディタ用ハイパーリンクプラグイン&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;このプログラムはフリーソフトウェアです。あなたはこれを、フリーソフトウェア財団によって発行された GNU 一般公衆利用許諾契約書(バージョン2か、希望によってはそれ以降のバージョンのうちどれか)の定める条件の下で再頒布または改変することができます。&#xA;&#xA;このプログラムは有用であることを願って頒布されますが、*全くの無保証* です。商業可能性の保証や特定の目的への適合性は、言外に示されたものも含め全く存在しません。詳しくはGNU 一般公衆利用許諾契約書をご覧ください。&#xA;&#xA;あなたはこのプログラムと共に、GNU 一般公衆利用許諾契約書の複製物を一部受け取ったはずです。もし受け取っていなければ、フリーソフトウェア財団まで請求してください(宛先：&#xA;the Free Software Foundation, Inc., 59&#xA;Temple Place, Suite 330, Boston, MA 02111-1307 USA'/>
         <property name='df_LT.featureName' value='PropertiesHyperlink'/>
         <property name='df_LT.copyright' value='HyperlinkPlugin for PropertiesEditor&#xA;Copyright (C) 2009-  Sou Miyazaki'/>
         <property name='df_LT.providerName' value='Chomakichi'/>
         <property name='df_LT.description' value='It is a plug-in that adds the hyperlink function to the property editor.&#xA;As a result, the property use part can be easily retrieved.'/>
-        <property name='df_LT.license' value='HyperlinkPlugin for PropertiesEditor&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.&#xA;'/>
+        <property name='df_LT.license' value='HyperlinkPlugin for PropertiesEditor&#xA;Copyright (C) 2009-  Sou Miyazaki&#xA;&#xA;This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&#xA;&#xA;This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.&#xA;&#xA;You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.'/>
       </properties>
       <provides size='3'>
         <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.hyperlink.feature.group' version='1.0.2'/>
@@ -7199,10 +7199,131 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Activator: jp.gr.java_conf.ussiy.app.propedit.hyperlink.Activator&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.5,JavaSE-1.6&#xA;Require-Bundle: jp.gr.java_conf.ussiy.app.propedit;bundle-version=&quot;5.1.2&quot;,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui,org.eclipse.jdt.ui,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.ide,org.eclipse.ui.workbench.texteditor&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Localization: plugin&#xA;Eclipse-AutoStart: true&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit.hyperlink; singleton:=true&#xA;Bundle-Version: 1.0.2&#xA;
+            Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Activator: jp.gr.java_conf.ussiy.app.propedit.hyperlink.Activator&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.5,JavaSE-1.6&#xA;Require-Bundle: jp.gr.java_conf.ussiy.app.propedit;bundle-version=&quot;5.1.2&quot;,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui,org.eclipse.jdt.ui,org.eclipse.jface.text,org.eclipse.ui.editors,org.eclipse.ui.ide,org.eclipse.ui.workbench.texteditor&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Localization: plugin&#xA;Eclipse-AutoStart: true&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit.hyperlink; singleton:=true&#xA;Bundle-Version: 1.0.2
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit.nl.translated_host_properties' version='0.0.1'>
+      <hostRequirements size='1'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit' range='5.3.3' greedy='false'/>
+      </hostRequirements>
+      <properties size='9'>
+        <property name='org.eclipse.equinox.p2.type.fragment' value='true'/>
+        <property name='zh.Bundle-Vendor.0' value='Chomakichi'/>
+        <property name='zh.Bundle-Name.0' value='PropertiesEditor'/>
+        <property name='ko.Bundle-Vendor.0' value='Chomakichi'/>
+        <property name='ko.Bundle-Name.0' value='PropertiesEditor'/>
+        <property name='zh_CN.Bundle-Vendor.0' value='Chomakichi'/>
+        <property name='zh_CN.Bundle-Name.0' value='PropertiesEditor'/>
+        <property name='zh_TW.Bundle-Vendor.0' value='Chomakichi'/>
+        <property name='zh_TW.Bundle-Name.0' value='PropertiesEditor'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='zh' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='ko' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='zh_CN' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='zh_TW' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit' range='5.3.3' greedy='false'/>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1' singleton='false'>
+      <update id='jp.gr.java_conf.ussiy.app.propedit.nl' range='[0.0.0,0.0.1)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='PropertiesEditor asian NLS'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Chomakichi'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'/>
+        <provided namespace='osgi.bundle' name='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='jp.gr.java_conf.ussiy.app.propedit' version='0.0.1'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='jp.gr.java_conf.ussiy.app.propedit' range='5.3.3'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.0.1&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit.nl&#xA;Bundle-Name: PropertiesEditor asian NLS&#xA;Fragment-Host: jp.gr.java_conf.ussiy.app.propedit;bundle-version=&quot;5.3.3&quot;&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.5,JavaSE-1.6&#xA;Bundle-Vendor: Chomakichi&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit.nl.feature.jar' version='0.0.1'>
+      <update id='jp.gr.java_conf.ussiy.app.propedit.nl.feature.jar' range='[0.0.0,0.0.1)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='PropertiesEditor_Asian_NLS'/>
+        <property name='org.eclipse.equinox.p2.description' value='Asian NLS'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://propedit.sourceforge.jp/index_en.html'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Chomakichi'/>
+        <property name='org.eclipse.update.feature.plugin' value='jp.gr.java_conf.ussiy.app.propedit'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.nl.feature.jar' version='0.0.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='jp.gr.java_conf.ussiy.app.propedit.nl' version='0.0.1'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license>
+          PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;This program is free software; you can redistribute it and/or&#xA;modify it under the terms of the GNU General Public License as&#xA;published by the Free Software Foundation; either version 2 of&#xA;the License, or (at your option) any later version.&#xA;This program is distributed in the hope that it will be useful,&#xA;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA;GNU General Public License for more details.&#xA;You should have received a copy of the GNU General Public License&#xA;along with this program; if not, write to the Free Software Foundation,&#xA;Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+        </license>
+      </licenses>
+      <copyright>
+        PropertiesEditor - Editor of properties file.\nCopyright (C)&#xA;2004-  Sou Miyazaki
+      </copyright>
+    </unit>
+    <unit id='jp.gr.java_conf.ussiy.app.propedit.nl.feature.group' version='0.0.1' singleton='false'>
+      <update id='jp.gr.java_conf.ussiy.app.propedit.nl.feature.group' range='[0.0.0,0.0.1)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='PropertiesEditor_Asian_NLS'/>
+        <property name='org.eclipse.equinox.p2.description' value='Asian NLS'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://propedit.sourceforge.jp/index_en.html'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Chomakichi'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.nl.feature.group' version='0.0.1'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit' range='5.3.3'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.nl' range='[0.0.1,0.0.1]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jp.gr.java_conf.ussiy.app.propedit.nl.feature.jar' range='[0.0.1,0.0.1]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license>
+          PropertiesEditor - Editor of properties file.&#xA;Copyright (C) 2004-  Sou Miyazaki&#xA;This program is free software; you can redistribute it and/or&#xA;modify it under the terms of the GNU General Public License as&#xA;published by the Free Software Foundation; either version 2 of&#xA;the License, or (at your option) any later version.&#xA;This program is distributed in the hope that it will be useful,&#xA;but WITHOUT ANY WARRANTY; without even the implied warranty of&#xA;MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the&#xA;GNU General Public License for more details.&#xA;You should have received a copy of the GNU General Public License&#xA;along with this program; if not, write to the Free Software Foundation,&#xA;Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+        </license>
+      </licenses>
+      <copyright>
+        PropertiesEditor - Editor of properties file.\nCopyright (C)&#xA;2004-  Sou Miyazaki
+      </copyright>
     </unit>
   </units>
 </repository>
