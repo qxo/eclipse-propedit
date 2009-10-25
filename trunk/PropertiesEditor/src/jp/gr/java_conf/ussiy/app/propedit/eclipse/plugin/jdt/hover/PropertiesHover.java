@@ -10,12 +10,14 @@ import java.util.Properties;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.util.ProjectProperties;
+import jp.gr.java_conf.ussiy.util.StringUtil;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jdt.internal.ui.text.java.hover.JavaInformationProvider;
 import org.eclipse.jdt.ui.text.java.hover.IJavaEditorTextHover;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.DefaultInformationControl;
@@ -148,10 +150,10 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 			StringBuffer buf = new StringBuffer();
 			while (ite.hasNext()) {
 				IFile file = (IFile)ite.next();
-				String path = (String)file.getFullPath().toPortableString();
-				String value = (String)((Properties)propertyMap.get(file)).getProperty(targetKey);
-				buf.append("< ").append(Messages.getString("eclipse.propertieseditor.hover.file")).append(path).append(" >\n"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				buf.append(value).append("\n"); //$NON-NLS-1$
+				String path = StringUtil.escapeHtml((String)file.getFullPath().toPortableString());
+				String value = StringUtil.escapeHtml((String)((Properties)propertyMap.get(file)).getProperty(targetKey));
+				buf.append("<b>").append(path).append("</b><br/>"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				buf.append(value).append("<br/>"); //$NON-NLS-1$
 			}
 			return buf.toString();
 		} else {
@@ -170,11 +172,7 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 	 * @see org.eclipse.jface.text.ITextHoverExtension#getHoverControlCreator()
 	 */
 	public IInformationControlCreator getHoverControlCreator() {
-		return new IInformationControlCreator() {
-			public IInformationControl createInformationControl(Shell parent) {
-				return new DefaultInformationControl(parent);
-			}
-		};
+		return new JavaInformationProvider(editorPart).getInformationPresenterControlCreator();
 	}
 
 }
