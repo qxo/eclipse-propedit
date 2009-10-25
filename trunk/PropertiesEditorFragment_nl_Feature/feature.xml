@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit.nl"
       label="PropertiesEditor_Asian_NLS"
-      version="0.0.1"
+      version="0.0.2"
       provider-name="Chomakichi"
       plugin="jp.gr.java_conf.ussiy.app.propedit">
 
