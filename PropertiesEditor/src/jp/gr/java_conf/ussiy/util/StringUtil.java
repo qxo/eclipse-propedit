@@ -13,4 +13,13 @@ public class StringUtil {
 		}
 		return buf.toString();
 	}
+	
+	public static String escapeHtml(String str) {
+		if (str == null) return null;
+		str = str.replaceAll("&", "&amp;");
+		str = str.replaceAll("<", "&lt;");
+		str = str.replaceAll(">", "&gt;");
+		str = str.replaceAll("\"", "&quot;");
+		return str;
+	}
 }
