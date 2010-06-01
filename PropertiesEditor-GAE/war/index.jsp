@@ -6,6 +6,7 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<META name="keywords" content="java,native2ascii,eclipse,multibyte,plugin,multibyte,property,editor,Code,conversion,application,unicode,properties,editor,setting,file,hover,コード変換,アプリケーション,ユニコード,プロパティ,エディタ,設定,ファイル,ホバー">
     <title>Unicode reference character changer</title>
   </head>
 
