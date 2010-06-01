@@ -1,6 +1,7 @@
 package jp.gr.java_conf.ussiy.propedit;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,11 +107,11 @@ public class Convert extends HttpServlet {
 		
 		List<String> op1 = new ArrayList<String>();
 		for (int i = options1.size() - 1; i >= 0; i--) {
-			op1.add(options1.get(i));
+			op1.add(URLDecoder.decode(options1.get(i), "UTF-8"));
 		}
 		List<String> op2 = new ArrayList<String>();
 		for (int i = options2.size() - 1; i >= 0; i--) {
-			op2.add(options2.get(i));
+			op2.add(URLDecoder.decode(options2.get(i), "UTF-8"));
 		}
 		request.setAttribute("options1", op1);
 		request.setAttribute("options2", op2);
