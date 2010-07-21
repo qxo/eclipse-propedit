@@ -198,13 +198,15 @@
 	</extension>
 	<extension
 			id="jp.gr.java_conf.ussiy.app.propedit.propertiesCompletionProposalComputer"
-			point="org.eclipse.jdt.ui.javaCompletionProposalComputer">
+			point="org.eclipse.jdt.ui.javaCompletionProposalComputer"
+			name="%proposalName">
 		<javaCompletionProposalComputer
 				activate="true"
-				categoryId="org.eclipse.jdt.ui.defaultProposalCategory"
+				categoryId="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.proposalCategory"
 				class="jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.jdt.proposal.PropertiesCompletionProposalComputer">
 			<partition type="__java_string"/>
 		</javaCompletionProposalComputer>
+		<proposalCategory icon="icons/pe_32.gif"/>
 	</extension>
 	<extension
 			point="org.eclipse.core.contenttype.contentTypes">

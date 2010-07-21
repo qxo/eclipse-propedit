@@ -5,12 +5,11 @@
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit.util;
 
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 
 import jp.gr.java_conf.ussiy.io.LockableFileOutputStream;
@@ -26,10 +25,6 @@ public class FileOpener extends File {
 	/**
 	 */
 	private StringBuffer txt = null;
-
-	/**
-	 */
-	private ByteArrayOutputStream bin = null;
 
 	/**
 	 * 
@@ -59,20 +54,19 @@ public class FileOpener extends File {
 	public void read(String code) throws IOException {
 
 		byte[] buffer = null;
-		FileInputStream fis = null;
+		BufferedInputStream bis = null;
+		ByteArrayOutputStream bin = null;
 		int getLength = 0;
 
-		FileReader fr = null;
-		BufferedReader br = null;
 		if (this.isFile()) {
 			// In the case of a file (nothing is carried out when it is not a
 			// file)
 			try {
-				fis = new FileInputStream(this);
+				bis = new BufferedInputStream(new FileInputStream(this));
 				bin = new ByteArrayOutputStream();
 				buffer = new byte[1024];
 				// Reading of a file
-				while ((getLength = fis.read(buffer)) != -1) {
+				while ((getLength = bis.read(buffer)) != -1) {
 					bin.write(buffer, 0, getLength);
 				}
 				txt = new StringBuffer(StringUtil.removeCarriageReturn(new String(bin.toByteArray(), code)));
@@ -82,11 +76,8 @@ public class FileOpener extends File {
 				throw e;
 			} finally {
 				try {
-					if (br != null) {
-						br.close();
-					}
-					if (fr != null) {
-						fr.close();
+					if (bis != null) {
+						bis.close();
 					}
 				} catch (IOException e) {
 				}

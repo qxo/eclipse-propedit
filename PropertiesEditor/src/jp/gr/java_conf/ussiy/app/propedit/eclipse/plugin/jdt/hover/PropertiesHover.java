@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
-import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.resources.Messages;
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.util.ProjectProperties;
 import jp.gr.java_conf.ussiy.util.StringUtil;
 
@@ -20,25 +19,15 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jdt.internal.ui.text.java.hover.JavaInformationProvider;
 import org.eclipse.jdt.ui.text.java.hover.IJavaEditorTextHover;
 import org.eclipse.jface.text.BadLocationException;
-import org.eclipse.jface.text.DefaultInformationControl;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.IInformationControl;
 import org.eclipse.jface.text.IInformationControlCreator;
 import org.eclipse.jface.text.IRegion;
 import org.eclipse.jface.text.ITextHoverExtension;
 import org.eclipse.jface.text.ITextViewer;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 
-/**
- *
- */
-/**
- * @author miyazaki
- *
- */
 /**
  * @author miyazaki
  *
