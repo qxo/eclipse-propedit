@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PropertiesEditor asian NLS
+Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit.nl
+Bundle-Version: 0.1.0
+Bundle-Vendor: Chomakichi
+Fragment-Host: jp.gr.java_conf.ussiy.app.propedit;bundle-version="5.3.3"
+Bundle-RequiredExecutionEnvironment: J2SE-1.4,
+ J2SE-1.5,
+ JavaSE-1.6
