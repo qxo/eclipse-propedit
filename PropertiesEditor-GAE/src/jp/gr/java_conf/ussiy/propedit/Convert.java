@@ -37,7 +37,7 @@ public class Convert extends HttpServlet {
 		if (src1 != null && !src1.equals("")) {
 			cookieValue1 = URLEncoder.encode(src1, "UTF-8");
 		}
-		if (src1 != null && !src1.equals("")) {
+		if (src2 != null && !src2.equals("")) {
 			cookieValue2 = URLEncoder.encode(src2, "UTF-8");
 		}
 		List<String> options1 = new ArrayList<String>();
