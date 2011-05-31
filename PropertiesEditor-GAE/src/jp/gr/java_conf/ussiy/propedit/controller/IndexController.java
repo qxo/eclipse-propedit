@@ -17,17 +17,26 @@ public class IndexController extends Controller {
 
     @Override
     public Navigation run() throws Exception {
+        // ïœä∑
         String src1 = asString("src1");
         String src2 = asString("src2");
+        String cvt1 = asString("cvt1");
+        String cvt2 = asString("cvt2");
 
-        String cvt1 = EncodeChanger.unicode2UnicodeEsc(src1);
-        String cvt2 = EncodeChanger.unicodeEsc2Unicode(src2);
+        if (asString("c") == null || (!asString("c").equals("1") && !asString("c").equals("2"))) {
+            if (asString("co") != null && asString("co").equals("1")) {
+                cvt1 = EncodeChanger.unicode2UnicodeEsc(src1);
+            } else if (asString("co") != null && asString("co").equals("2")) {
+                cvt2 = EncodeChanger.unicodeEsc2Unicode(src2);
+            }
+        }
 
         requestScope("src1", src1);
         requestScope("cvt1", cvt1);
         requestScope("src2", src2);
         requestScope("cvt2", cvt2);
         
+        // óöóêßå‰
         String cookieValue1 = "";
         String cookieValue2 = "";
         if (src1 != null && !src1.equals("")) {
@@ -95,10 +104,20 @@ public class IndexController extends Controller {
             }
         }
         Cookie cookie1 = new Cookie("statement1", cookieBuffer1.toString());
-        cookie1.setMaxAge(60 * 60 * 24 * 365);
+        if (asString("c") != null && asString("c").equals("1")) {
+            cookie1.setMaxAge(0);
+            options1.clear();
+        } else {
+            cookie1.setMaxAge(60 * 60 * 24 * 365);
+        }
         response.addCookie(cookie1);
         Cookie cookie2 = new Cookie("statement2", cookieBuffer2.toString());
-        cookie2.setMaxAge(60 * 60 * 24 * 365);
+        if (asString("c") != null && asString("c").equals("2")) {
+            cookie2.setMaxAge(0);
+            options2.clear();
+        } else {
+            cookie2.setMaxAge(60 * 60 * 24 * 365);
+        }
         response.addCookie(cookie2);
         
         List<String> op1 = new ArrayList<String>();
