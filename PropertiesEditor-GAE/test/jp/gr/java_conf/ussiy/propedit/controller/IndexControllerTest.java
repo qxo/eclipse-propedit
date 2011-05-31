@@ -1,4 +1,6 @@
-package slim3.controller;
+package jp.gr.java_conf.ussiy.propedit.controller;
+
+import jp.gr.java_conf.ussiy.propedit.controller.IndexController;
 
 import org.slim3.tester.ControllerTestCase;
 import org.junit.Test;

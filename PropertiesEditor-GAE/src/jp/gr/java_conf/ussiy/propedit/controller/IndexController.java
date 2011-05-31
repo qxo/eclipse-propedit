@@ -1,4 +1,4 @@
-package slim3.controller;
+package jp.gr.java_conf.ussiy.propedit.controller;
 
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -7,10 +7,11 @@ import java.util.List;
 
 import javax.servlet.http.Cookie;
 
+import jp.gr.java_conf.ussiy.propedit.lib.EncodeChanger;
+
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 
-import slim3.lib.EncodeChanger;
 
 public class IndexController extends Controller {
 

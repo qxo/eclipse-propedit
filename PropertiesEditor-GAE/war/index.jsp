@@ -41,11 +41,11 @@
       	<th>plain text</th><th>text converted into Unicode reference characters</th>
       </tr>
       <tr>
-      	<td style="width: 50%"><textarea id="src1" name="src1" style="width: 100%" rows="5">${f:h(src1)}</textarea></td>
-      	<td style="width: 50%"><textarea name="cvt1" style="width: 100%" rows="5" readonly="readonly">${f:h(cvt1)}</textarea></td>
+      	<td style="width: 50%"><textarea id="src1" name="src1" style="width: 100%" rows="15">${f:h(src1)}</textarea></td>
+      	<td style="width: 50%"><textarea name="cvt1" style="width: 100%" rows="15" readonly="readonly">${f:h(cvt1)}</textarea></td>
       </tr>
       <tr>
-      	<td>
+      	<td>history:
       		<select onchange="historyChange('src1', this)" style="width: 300px;">
       			<option value=""></option>
       			<c:forEach var="option" items="${options1}">
@@ -63,12 +63,12 @@
       </tr>
       <tr>
       	<% if (request.getAttribute("src2") == null) request.setAttribute("src2", ""); %>
-        <td style="width: 50%"><textarea id="src2" name="src2" style="width: 100%" rows="5"><%= request.getAttribute("src2") %></textarea></td>
+        <td style="width: 50%"><textarea id="src2" name="src2" style="width: 100%" rows="15"><%= request.getAttribute("src2") %></textarea></td>
       	<% if (request.getAttribute("cvt2") == null) request.setAttribute("cvt2", ""); %>
-        <td style="width: 50%"><textarea name="cvt2" style="width: 100%" rows="5" readonly="readonly"><%= request.getAttribute("cvt2") %></textarea></td>
+        <td style="width: 50%"><textarea name="cvt2" style="width: 100%" rows="15" readonly="readonly"><%= request.getAttribute("cvt2") %></textarea></td>
       </tr>
       <tr>
-      	<td>
+      	<td>history:
       		<select onchange="historyChange('src2', this)" style="width: 300px;">
       			<option value=""></option>
       			<c:forEach var="option" items="${options2}">
