@@ -3,7 +3,7 @@
  *   @author  Chomakichi
  *
  ****************************************************/
-package slim3.lib;
+package jp.gr.java_conf.ussiy.propedit.lib;
 
 import java.io.BufferedReader;
 import java.io.IOException;
