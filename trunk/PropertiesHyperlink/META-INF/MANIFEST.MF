@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name.0
 Bundle-SymbolicName: jp.gr.java_conf.ussiy.app.propedit.hyperlink; singleton:=true
-Bundle-Version: 1.0.3
+Bundle-Version: 2.0.0
 Bundle-Activator: jp.gr.java_conf.ussiy.app.propedit.hyperlink.Activator
 Bundle-Vendor: %Bundle-Vendor.0
 Require-Bundle: jp.gr.java_conf.ussiy.app.propedit;bundle-version="5.1.2",

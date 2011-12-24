@@ -3,7 +3,7 @@
 
   <information>
     <title>Properties Editor</title>
-    <vendor>Chomakichi</vendor>
+    <vendor>Sou Miyazaki</vendor>
     <description>It is the editor into which the properties file used by Java can be edited without using native2ascii.</description>
     <description kind="tooltip">Properties Editor</description>
     <homepage href="./index_en.html" />
@@ -13,7 +13,7 @@
 
   <information locale="ja">
     <title>プロパティエディタ</title>
-    <vendor>ちょま吉</vendor>
+    <vendor>Sou Miyazaki</vendor>
     <description>Javaで利用されるプロパティ・ファイルがnative2asciiを使用せずに編集することができるエディターです。</description>
     <description kind="tooltip">プロパティエディタ</description>
     <homepage href="./index.html" />
