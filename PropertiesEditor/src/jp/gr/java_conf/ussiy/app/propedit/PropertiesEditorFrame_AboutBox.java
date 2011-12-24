@@ -1,7 +1,7 @@
 /*****************************************************
  * It is the frame which displays version information.
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit;
@@ -25,7 +25,7 @@ import javax.swing.SwingConstants;
 /**
  * It is the frame which displays version information.
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class PropertiesEditorFrame_AboutBox extends JDialog implements ActionListener {

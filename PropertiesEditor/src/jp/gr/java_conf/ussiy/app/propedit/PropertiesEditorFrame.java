@@ -1,7 +1,7 @@
 /*****************************************************
  * It is the main frame of application.
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit;
@@ -72,7 +72,7 @@ import jp.gr.java_conf.ussiy.swing.filechooser.PropertiesFileFilter;
 /**
  * It is the main frame of application.
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class PropertiesEditorFrame extends JFrame implements ActionListener {
@@ -1088,7 +1088,7 @@ public class PropertiesEditorFrame extends JFrame implements ActionListener {
 
 	/**
 	 * 
-	 * @author Chomakichi
+	 * @author Sou Miyazaki
 	 *  
 	 */
 	class UndoHandler implements UndoableEditListener {
@@ -1108,7 +1108,7 @@ public class PropertiesEditorFrame extends JFrame implements ActionListener {
 
 	/**
 	 * 
-	 * @author Chomakichi
+	 * @author Sou Miyazaki
 	 *  
 	 */
 	class UndoAction extends AbstractAction {
@@ -1153,7 +1153,7 @@ public class PropertiesEditorFrame extends JFrame implements ActionListener {
 
 	/**
 	 * 
-	 * @author Chomakichi
+	 * @author Sou Miyazaki
 	 *  
 	 */
 	class RedoAction extends AbstractAction {
@@ -1198,7 +1198,7 @@ public class PropertiesEditorFrame extends JFrame implements ActionListener {
 
 	/**
 	 * 
-	 * @author Chomakichi
+	 * @author Sou Miyazaki
 	 *  
 	 */
 	class DropHandler implements DropTargetListener {

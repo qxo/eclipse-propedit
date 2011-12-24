@@ -1,7 +1,7 @@
 /*****************************************************
  * This class is main class of application.
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit;
@@ -15,7 +15,7 @@ import javax.swing.UIManager;
 /**
  * This class is main class of application.
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class PropertiesEditor {
@@ -28,7 +28,7 @@ public class PropertiesEditor {
 
 	/**
 	 */
-	public static String COPYRIGHT = res.getString("2004_ChomaKichi_All"); //$NON-NLS-1$
+	public static String COPYRIGHT = res.getString("2004_Sou Miyazaki_All"); //$NON-NLS-1$
 
 	/**
 	 * 
