@@ -1,7 +1,7 @@
 /*****************************************************
  * It is the dialog which displays the text changed into Unicode.
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit;
@@ -21,7 +21,7 @@ import javax.swing.JTextArea;
 /**
  * It is the dialog which displays the text changed into Unicode.
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class UnicodeDialog extends BaseDialog {
