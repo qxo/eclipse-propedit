@@ -1,6 +1,6 @@
 /*****************************************************
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit;
@@ -15,7 +15,7 @@ import javax.swing.filechooser.FileSystemView;
 
 /**
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class JSelectCodeFileChooser extends JFileChooser {
