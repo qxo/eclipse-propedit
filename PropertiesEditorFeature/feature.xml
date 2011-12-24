@@ -2,7 +2,7 @@
 <feature
       id="jp.gr.java_conf.ussiy.app.propedit"
       label="%featureName"
-      version="5.3.5"
+      version="6.0.0"
       provider-name="%providerName"
       plugin="jp.gr.java_conf.ussiy.app.propedit"
       image="icons/pe_32.gif">
@@ -15,7 +15,7 @@
       %copyright
    </copyright>
 
-   <license url="%licenseUrl">
+   <license url="http://eclipse.org/legal/epl-v10.html">
       %license
    </license>
 
