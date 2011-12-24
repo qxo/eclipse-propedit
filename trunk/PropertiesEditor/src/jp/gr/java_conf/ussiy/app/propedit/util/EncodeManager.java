@@ -1,6 +1,6 @@
 /*****************************************************
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit.util;
@@ -13,7 +13,7 @@ import jp.gr.java_conf.ussiy.app.propedit.bean.Encode;
 
 /**
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class EncodeManager {

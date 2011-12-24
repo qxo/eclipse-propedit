@@ -2,7 +2,7 @@
  * It is a class holding various setup.
  * This class is saved and it is made to read a setup at the time of next starting.
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit.bean;
@@ -22,7 +22,7 @@ import java.util.Vector;
 /**
  * It is a class holding various setup. This class is saved and it is made to read a setup at the time of next starting.
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class AppSetting implements Serializable {

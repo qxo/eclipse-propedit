@@ -1,6 +1,6 @@
 /*****************************************************
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit.util;
@@ -11,7 +11,7 @@ import java.io.StringReader;
 
 /**
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class EncodeChanger {
