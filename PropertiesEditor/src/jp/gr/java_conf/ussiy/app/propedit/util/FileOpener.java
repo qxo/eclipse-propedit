@@ -1,6 +1,6 @@
 /*****************************************************
  *
- *   @author  Chomakichi
+ *   @author  Sou Miyazaki
  *
  ****************************************************/
 package jp.gr.java_conf.ussiy.app.propedit.util;
@@ -17,7 +17,7 @@ import jp.gr.java_conf.ussiy.util.StringUtil;
 
 /**
  * 
- * @author Chomakichi
+ * @author Sou Miyazaki
  *  
  */
 public class FileOpener extends File {
