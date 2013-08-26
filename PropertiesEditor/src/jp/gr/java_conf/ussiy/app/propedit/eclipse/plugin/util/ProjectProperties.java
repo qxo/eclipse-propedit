@@ -4,6 +4,7 @@
 package jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.util;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -53,7 +54,7 @@ public class ProjectProperties {
 	}
 
 	public void deleteProjectProperties(IProject project) {
-		log("properties removing '" + project.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		log("properties removing for project '" + project.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		this.propertyMap.remove(project);
 	}
 	
@@ -61,7 +62,7 @@ public class ProjectProperties {
 	 * @param project
 	 */
 	public void loadProjectProperties(IProject project) {
-		log("properties loading '" + project.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+		log("properties loading for project '" + project.getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 		if (!project.isOpen()) {
 			this.propertyMap.remove(project);
 			return;
@@ -75,9 +76,12 @@ public class ProjectProperties {
 		IFile[] pFiles = PropertiesFileUtil.findFileExt(project, outputPath, "properties"); //$NON-NLS-1$
 		Map list = new HashMap();
 		for (int j = 0; j < pFiles.length; j++) {
+			log("loading file '" + pFiles[j].getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 			Properties prop = new Properties();
+			InputStream is = null;
 			try {
-				prop.load(pFiles[j].getContents());
+				is = pFiles[j].getContents();
+				prop.load(is);
 			} catch (IOException e) {
 				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 				ILog log = PropertiesEditorPlugin.getDefault().getLog();
@@ -86,6 +90,14 @@ public class ProjectProperties {
 				IStatus status = new Status(IStatus.ERROR, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, e.getMessage(), e);
 				ILog log = PropertiesEditorPlugin.getDefault().getLog();
 				log.log(status);
+			} finally {
+				if (is != null) {
+					try {
+						is.close();
+					} catch (IOException e) {
+					}
+					is = null;
+				}
 			}
 			list.put(pFiles[j], prop);
 		}
