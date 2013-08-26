@@ -80,7 +80,7 @@ class EncodeSelectPanel extends JPanel {
 
 		String name = null;
 		Enumeration enu = encodeButtonGroup.getElements();
-		for (int i = 0; enu.hasMoreElements(); i++) {
+		while (enu.hasMoreElements()) {
 			AbstractButton button = (AbstractButton) enu.nextElement();
 			if (button.isSelected()) {
 				name = button.getText();
