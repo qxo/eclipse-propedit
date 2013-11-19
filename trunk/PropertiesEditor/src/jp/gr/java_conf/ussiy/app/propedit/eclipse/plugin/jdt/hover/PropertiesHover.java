@@ -64,6 +64,7 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 				}
 				if (tmp > 0) {
 					if (document.getChar(tmp - 1) == '\\') {
+						tmp++;
 						continue;
 					} else {
 						startIdx = tmp + 1;
@@ -87,6 +88,7 @@ public class PropertiesHover implements IJavaEditorTextHover, ITextHoverExtensio
 				}
 				if (tmp > 0) {
 					if (document.getChar(tmp - 1) == '\\') {
+						tmp++;
 						continue;
 					} else {
 						endIdx = tmp;
