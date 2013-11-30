@@ -64,7 +64,7 @@ public class PropertiesCompletionProposalComputer implements
 
 	public List computeContextInformation(ContentAssistInvocationContext arg0,
 			IProgressMonitor arg1) {
-		return null;
+		return Collections.emptyList();
 	}
 
 	public String getErrorMessage() {
