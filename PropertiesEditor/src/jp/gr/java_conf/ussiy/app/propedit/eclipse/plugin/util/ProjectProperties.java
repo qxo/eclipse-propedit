@@ -9,11 +9,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
 import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.PropertiesEditorPlugin;
+import jp.gr.java_conf.ussiy.app.propedit.eclipse.plugin.preference.PropertiesPreference;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.ILog;
@@ -67,16 +70,17 @@ public class ProjectProperties {
 			this.propertyMap.remove(project);
 			return;
 		}
+		final Pattern ignorePathPattern = getIgnorePathPattern();
 		IJavaProject jProject = JavaCore.create(project);
 		IPath outputPath = null;
 		try {
 			outputPath = jProject.getOutputLocation();
 		} catch (JavaModelException e) {
 		}
-		IFile[] pFiles = PropertiesFileUtil.findFileExt(project, outputPath, "properties"); //$NON-NLS-1$
+		IFile[] pFiles = PropertiesFileUtil.findFileExt(project, outputPath, "properties", ignorePathPattern); //$NON-NLS-1$
 		Map list = new HashMap();
 		for (int j = 0; j < pFiles.length; j++) {
-			log("loading file '" + pFiles[j].getName() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
+			log("loading file '" + pFiles[j].getFullPath() + "'"); //$NON-NLS-1$ //$NON-NLS-2$
 			Properties prop = new Properties();
 			InputStream is = null;
 			try {
@@ -103,10 +107,16 @@ public class ProjectProperties {
 		}
 		propertyMap.put(project, list);
 	}
+        public static Pattern getIgnorePathPattern() {
+            String ignorePathStr = PropertiesEditorPlugin.getDefault().getPreferenceStore().getString(PropertiesPreference.P_IGNORE_PATH_PATTERN);
+            final Pattern ignorePathPattern = ignorePathStr == null || (ignorePathStr = ignorePathStr.trim()).isEmpty() ? null 
+                : Pattern.compile(ignorePathStr,Pattern.CASE_INSENSITIVE);
+            return ignorePathPattern;
+        }
 	
 	public Properties getProperty(IProject project) {
 		Properties prop = new Properties();
-		Map properties = (Map)propertyMap.get(project);
+		Map properties = getProjectPropertiesMap(project);
 		Iterator ite = properties.keySet().iterator();
 		while (ite.hasNext()) {
 			IFile file = (IFile)ite.next();
@@ -118,7 +128,7 @@ public class ProjectProperties {
 	
 	public Map getProperty(IProject project, String key) {
 		Map list = new HashMap();
-		Map properties = (Map)propertyMap.get(project);
+		Map properties = getProjectPropertiesMap(project);
 		Iterator ite = properties.keySet().iterator();
 		while (ite.hasNext()) {
 			IFile file = (IFile)ite.next();
@@ -129,6 +139,15 @@ public class ProjectProperties {
 		}
 		return list;
 	}
+
+    protected Map getProjectPropertiesMap(final IProject project) {
+        Map properties = (Map)propertyMap.get(project);
+        if( properties == null){
+            properties = new HashMap();
+            propertyMap.put(project, properties);
+        }
+        return properties;
+    }
 	
 	private void log(String msg) {
 		IStatus status = new Status(IStatus.INFO, PropertiesEditorPlugin.PLUGIN_ID, IStatus.OK, msg, null);

@@ -24,6 +24,12 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 	public static final String P_COMMENT_CHARACTER = "commentCharacter"; //$NON-NLS-1$
 	
 	public static final String P_CONVERT_CHAR_CASE = "convertCharCase"; //$NON-NLS-1$
+	
+	public static final String P_LOAD_ALL_PROPERTY_ON_STARTUP = "loadAllPropertyOnStartup"; //$NON-NLS-1$
+	
+	public static final String P_LOAD_PROPERTY_ON_PROJECT_CHANGE = "loadPropertyOnProjectChange"; //$NON-NLS-1$
+	
+	public static final String P_IGNORE_PATH_PATTERN = "ignorePathPattern"; //$NON-NLS-1$
 
 	private BooleanFieldEditor notAllConvertEditor;
 
@@ -35,6 +41,8 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 	
 	private String[][] charCaseItems = new String[][] { { Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.uppercase") }, { Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase"), Messages.getString("eclipse.propertieseditor.preference.convert.char.lowercase") } }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 
+	private RadioGroupFieldEditor loadAllPropertyOnStartup;
+	   
 	public PropertiesPreference() {
 
 		super(GRID);
@@ -74,6 +82,25 @@ public class PropertiesPreference extends FieldEditorPreferencePage implements I
 		addField(convertCharCaseField);
 		addField(notAllConvertEditor);
 		addField(notConvertCommentField);
+		
+		 String[][] caseItems1 = new String[][] {
+		      { Messages.getString("eclipse.propertieseditor.preference.enable"), 
+		      "true"}, 
+		     { Messages.getString("eclipse.propertieseditor.preference.disable"),
+		        "false" } }; //$NON-NLS-1$ 
+
+		loadAllPropertyOnStartup = new RadioGroupFieldEditor(P_LOAD_ALL_PROPERTY_ON_STARTUP, 
+		        Messages.getString("eclipse.propertieseditor.preference.loadAllPropertyOnStartup"),
+		        2, caseItems1, parent, true); //$NON-NLS-1$
+		addField(loadAllPropertyOnStartup);
+		
+		RadioGroupFieldEditor enableOnPrjChange = new RadioGroupFieldEditor(P_LOAD_PROPERTY_ON_PROJECT_CHANGE, 
+        Messages.getString("eclipse.propertieseditor.preference.loadPropertyOnProjectChange"),
+        2, caseItems1, parent, true); //$NON-NLS-1$
+		addField(enableOnPrjChange);
+		
+		StringFieldEditor ignorePathFld = new StringFieldEditor(P_IGNORE_PATH_PATTERN, Messages.getString("eclipse.propertieseditor.preference.ignorePathPattern"), parent);
+		addField(ignorePathFld);
 	}
 
 	public void init(IWorkbench workbench) {

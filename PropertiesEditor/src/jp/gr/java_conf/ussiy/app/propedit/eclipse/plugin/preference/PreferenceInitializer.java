@@ -26,5 +26,11 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
 		pStore.setDefault(PropertiesEditorPreference.P_KEY_COLOR, "0,0,128"); //$NON-NLS-1$
 		pStore.setDefault(PropertiesEditorPreference.P_VALUE_COLOR, "128,0,0"); //$NON-NLS-1$
 		pStore.setDefault(PropertiesEditorPreference.P_BACKGROUND_COLOR, "255,255,255"); //$NON-NLS-1$
+
+		pStore.setDefault(PropertiesPreference.P_LOAD_ALL_PROPERTY_ON_STARTUP, false); //$NON-NLS-1$
+
+		pStore.setDefault(PropertiesPreference.P_LOAD_PROPERTY_ON_PROJECT_CHANGE, true); //$NON-NLS-1$
+
+		pStore.setDefault(PropertiesPreference.P_IGNORE_PATH_PATTERN, "target|^(.git|buildGradle|bin|gradle|.svn|[.])"); //$NON-NLS-1$
 	}
 }
